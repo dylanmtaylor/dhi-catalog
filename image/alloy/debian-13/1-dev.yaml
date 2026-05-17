@@ -16,7 +16,7 @@ platforms:
 vars:
   BASE_REFERENCE: dhi/static:20250419-glibc-debian13@sha256:03c0bb735cf243aac5adbb9da6f1ffea6f157a17531573b8c5f8e1329a3cc724
   COMMIT_SHA: 89d82370454dcee7b07d719ba632810e207a6de9
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   NODE_REFERENCE: dhi/pkg-node:24.15.0-debian13@sha256:9b4c9188ee6d299453f30e7fd4bbbc94fb9dfdcb1dd9ff5b3614fa380f40843d
   SEMVER_MAJOR_MINOR_VERSION: "1.16"
   SEMVER_MAJOR_VERSION: "1"
@@ -45,7 +45,7 @@ contents:
     - util-linux
   builds:
     - name: alloy
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       contents:
         packages:
           - libsystemd-dev
