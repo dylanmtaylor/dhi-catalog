@@ -20,7 +20,7 @@ vars:
   CONTAINERD_VERSION: 2.3.0
   FLAVORED_SUFFIX: -dev
   GODEBUG: ""
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   ROOTLESSKIT_COMMIT_SHA: a1d6ded184cf5915981a2978c61116013b91189f
   ROOTLESSKIT_VERSION: 2.3.6
   RUNC_VERSION: 1.4.2-2
@@ -86,7 +86,7 @@ contents:
           uid: 0
           gid: 0
     - name: rootlesskit
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/rootless-containers/rootlesskit/v3
       contents:
         files:
@@ -127,7 +127,7 @@ contents:
           uid: 0
           gid: 0
     - name: buildkit
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/moby/buildkit
       contents:
         files:
@@ -193,7 +193,7 @@ contents:
           uid: 0
           gid: 0
     - name: containerd
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/containerd/containerd/v2
       contents:
         files:
