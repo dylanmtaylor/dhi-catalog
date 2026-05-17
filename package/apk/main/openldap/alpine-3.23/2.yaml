@@ -3,19 +3,19 @@
 image: dhi.io/pkg-openldap
 variant: runtime
 tags:
-  - 2.6.10-alpine3.23
-  - 2.6.10-r0-alpine3.23
+  - 2.6.13-alpine3.23
+  - 2.6.13-r0-alpine3.23
 platforms:
   - linux/amd64
   - linux/arm64
 vars:
-  COMMIT_SHA: 6cdfdf26c6e20a07ec41fcdd675d256c0c4a94a4
+  COMMIT_SHA: 6275d971a54ed1d0672e2d56443319533727a2ea
   PACKAGE_NAME: main/openldap
   REL: "0"
   SEMVER_MAJOR_MINOR_VERSION: "2.6"
   SEMVER_MAJOR_VERSION: "2"
-  SEMVER_VERSION: 2.6.10
-  VERSION: 2.6.10
+  SEMVER_VERSION: 2.6.13
+  VERSION: 2.6.13
 contents:
   repositories:
     - https://dhi.io/apk/alpine/v3.23/main
@@ -44,12 +44,12 @@ contents:
           - openssl-dev
           - unixodbc-dev
         files:
-          - url: git+https://github.com/alpinelinux/aports.git#6cdfdf26c6e20a07ec41fcdd675d256c0c4a94a4
+          - url: git+https://github.com/alpinelinux/aports.git#6275d971a54ed1d0672e2d56443319533727a2ea
             path: ${source.dir}/aports
             uid: 0
             gid: 0
-          - url: https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.10.tgz
-            path: /var/cache/distfiles/openldap-2.6.10.tgz
+          - url: https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.13.tgz
+            path: /var/cache/distfiles/openldap-2.6.13.tgz
             uid: 0
             gid: 0
       pipeline:
