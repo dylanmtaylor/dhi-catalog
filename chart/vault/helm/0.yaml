@@ -17,10 +17,10 @@ vars:
   SEMVER_MAJOR_MINOR_VERSION: "0.32"
   SEMVER_MAJOR_VERSION: "0"
   SEMVER_VERSION: 0.32.0
-  VAULT_CSI_PROVIDER_REFERENCE: dhi/vault-csi-provider:1.7.1-debian13@sha256:1708698e1e4b92f4ec90b380df579156257b288ad0e1b99a7aa412f7a94627ab
-  VAULT_HELM_REFERENCE: dhi/vault:1.21.4-debian13-helm@sha256:043c9602b767d65f2a7afbc9f0193c04a1bc73fc297167ce97f219e960e0a8a2
-  VAULT_K8S_REFERENCE: dhi/vault-k8s:1.7.4-debian13@sha256:775fb58ab0ef700b35cddb2cd97be80327f9763db80ca130866fc92f61e180f9
-  VAULT_REFERENCE: dhi/vault:1.21.4-debian13@sha256:d68470db5f107c213ddf5f3a6c80fff8f9364a7f5098548f65bef7eaf585aba8
+  VAULT_CSI_PROVIDER_REFERENCE: dhi/vault-csi-provider:1.7.1-debian13@sha256:f4a44cde64365aea53116683f5700f9e5149cd45d555ccd48b458c2169f2912b
+  VAULT_HELM_REFERENCE: dhi/vault:1.21.4-debian13-helm@sha256:95966bfaf96203f42b8a58ba780dbcbf49570299f8bf0689328693409f11a363
+  VAULT_K8S_REFERENCE: dhi/vault-k8s:1.7.4-debian13@sha256:d2f3b4a5854658c41c661497dbe1fe2ca513baaf856d7ae4211ea2661f404c70
+  VAULT_REFERENCE: dhi/vault:1.21.4-debian13@sha256:3231531592166ef4ba06f09e1027fc5f0fda8387c9a5ceb4dbd2abf1e72c04d2
   VERSION: 0.32.0
 contents:
   builds:
@@ -50,13 +50,13 @@ contents:
               description: Docker Hardened Images Helm chart for Vault
               images:
                 - name: vault
-                  ref: dhi/vault:1.21.4-debian13@sha256:d68470db5f107c213ddf5f3a6c80fff8f9364a7f5098548f65bef7eaf585aba8
+                  ref: dhi/vault:1.21.4-debian13@sha256:3231531592166ef4ba06f09e1027fc5f0fda8387c9a5ceb4dbd2abf1e72c04d2
                 - name: vault-helm
-                  ref: dhi/vault:1.21.4-debian13-helm@sha256:043c9602b767d65f2a7afbc9f0193c04a1bc73fc297167ce97f219e960e0a8a2
+                  ref: dhi/vault:1.21.4-debian13-helm@sha256:95966bfaf96203f42b8a58ba780dbcbf49570299f8bf0689328693409f11a363
                 - name: vault-k8s
-                  ref: dhi/vault-k8s:1.7.4-debian13@sha256:775fb58ab0ef700b35cddb2cd97be80327f9763db80ca130866fc92f61e180f9
+                  ref: dhi/vault-k8s:1.7.4-debian13@sha256:d2f3b4a5854658c41c661497dbe1fe2ca513baaf856d7ae4211ea2661f404c70
                 - name: vault-csi-provider
-                  ref: dhi/vault-csi-provider:1.7.1-debian13@sha256:1708698e1e4b92f4ec90b380df579156257b288ad0e1b99a7aa412f7a94627ab
+                  ref: dhi/vault-csi-provider:1.7.1-debian13@sha256:f4a44cde64365aea53116683f5700f9e5149cd45d555ccd48b458c2169f2912b
               name: vault-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/hashicorp/vault-helm
