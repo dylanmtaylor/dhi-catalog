@@ -8,14 +8,14 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  BUSYBOX_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:9a7b852dfd8960fe97bc64bec0b4cc36a8b3aa4b16c9e86b2477011ffbdb843b
+  BUSYBOX_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
   CHART_COMMIT_SHA: af9ef28257450b1bbf292a9de8bc42d3eeef3c42
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  GRAFANA_AGENT_OPERATOR_REFERENCE: dhi/grafana-agent-operator:0.44.8-debian13@sha256:5b20533aa123f7df9ab9c73669717722a10ab5245632b882cb14b6469dd83317
-  GRAFANA_AGENT_REFERENCE: dhi/grafana-agent:0.44.8-debian13@sha256:84fab0b2a2e9d9089c1baae9b2ca5178640819661d5cca5ebc3689d4ad45d8a5
+  GRAFANA_AGENT_OPERATOR_REFERENCE: dhi/grafana-agent-operator:0.44.8-debian13@sha256:40f377bd766f440a626a69ebb0421989a0daa5c84b3fe2f7ccbc698b93b4864d
+  GRAFANA_AGENT_REFERENCE: dhi/grafana-agent:0.44.8-debian13@sha256:b1f4f1ae6a679c27ec9bfbd899fb65526698ce9b68c3bdacda2bc9331935383a
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
   SEMVER_MAJOR_MINOR_VERSION: "0.5"
   SEMVER_MAJOR_VERSION: "0"
@@ -49,11 +49,11 @@ contents:
               description: Docker Hardened Images Helm chart for Grafana Agent Operator
               images:
                 - name: grafana-agent-operator
-                  ref: dhi/grafana-agent-operator:0.44.8-debian13@sha256:5b20533aa123f7df9ab9c73669717722a10ab5245632b882cb14b6469dd83317
+                  ref: dhi/grafana-agent-operator:0.44.8-debian13@sha256:40f377bd766f440a626a69ebb0421989a0daa5c84b3fe2f7ccbc698b93b4864d
                 - name: grafana-agent
-                  ref: dhi/grafana-agent:0.44.8-debian13@sha256:84fab0b2a2e9d9089c1baae9b2ca5178640819661d5cca5ebc3689d4ad45d8a5
+                  ref: dhi/grafana-agent:0.44.8-debian13@sha256:b1f4f1ae6a679c27ec9bfbd899fb65526698ce9b68c3bdacda2bc9331935383a
                 - name: busybox
-                  ref: dhi/busybox:1.37.0-debian13@sha256:9a7b852dfd8960fe97bc64bec0b4cc36a8b3aa4b16c9e86b2477011ffbdb843b
+                  ref: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
               name: grafana-agent-operator-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/grafana/helm-charts
