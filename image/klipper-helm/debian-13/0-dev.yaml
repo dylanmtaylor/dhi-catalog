@@ -19,7 +19,7 @@ vars:
   BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
   BASE_TAG: 20250419-debian13
   COMMIT_SHA: 381474570210004ab69d5114b8d00a477178d579
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   HELM_MAPKUBEAPIS_COMMIT_SHA: afa30453b58395ad8215cfe2c1a1edff50428baa
   HELM_MAPKUBEAPIS_VERSION: 0.6.1
   HELM_REFERENCE: dhi/helm:3.21.0-debian13@sha256:aa73e03c5109c44dff199519d0c81e07c77067db2bacb82f73191375500e172e
@@ -52,7 +52,7 @@ contents:
     - util-linux
   builds:
     - name: klipper-helm-entry
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/k3s-io/klipper-helm
       contents:
         files:
@@ -82,7 +82,7 @@ contents:
           gid: 0
           mode: "0555"
     - name: klipper-helm-plugin-set-status
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/k3s-io/helm-set-status
       caches:
         - path: /go/pkg/mod
@@ -148,7 +148,7 @@ contents:
           uid: 0
           gid: 0
     - name: klipper-helm-plugin-mapkubeapis
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/helm/helm-mapkubeapis
       caches:
         - path: /go/pkg/mod
