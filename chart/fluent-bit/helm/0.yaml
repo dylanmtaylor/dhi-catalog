@@ -10,12 +10,12 @@ platforms:
 vars:
   BUSYBOX_REFERENCE: dhi/busybox:1.37.0-alpine3.22@sha256:eaa4c2f2095e8692b35dceeda1de6250e75e9d3a3ab1d24ead080755cf51c5ca
   CHART_COMMIT_SHA: 4097435bf590210e2c64c1e2797fe2f99bf6e0df
-  CONFIGMAP_RELOAD_REFERENCE: dhi/configmap-reload:0.15.0-debian13@sha256:bb84720aae56dc7e0a0e8a50d8c17c5f27c985bf76b9d39b99a622e78f971475
+  CONFIGMAP_RELOAD_REFERENCE: dhi/configmap-reload:0.15.0-debian13@sha256:45c352a751aceeb212854b6e2f1db6e763eda38ac0d14d426acc17b03ac55885
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  FLUENT_BIT_REFERENCE: dhi/fluent-bit:4.2.4-debian13@sha256:817c1d8898b31ab5b06dd393ae8ebf92f0230da3cbf4a2673d8fee45b93b32de
+  FLUENT_BIT_REFERENCE: dhi/fluent-bit:4.2.4-debian13@sha256:b031102b1b8c238a84127a062251f9a1272dc50ba966cb1240913e03f0f0e4f8
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
   SEMVER_MAJOR_MINOR_VERSION: "0.57"
   SEMVER_MAJOR_VERSION: "0"
@@ -49,9 +49,9 @@ contents:
               description: Docker Hardened Images Helm chart for Fluent Bit
               images:
                 - name: fluent-bit
-                  ref: dhi/fluent-bit:4.2.4-debian13@sha256:817c1d8898b31ab5b06dd393ae8ebf92f0230da3cbf4a2673d8fee45b93b32de
+                  ref: dhi/fluent-bit:4.2.4-debian13@sha256:b031102b1b8c238a84127a062251f9a1272dc50ba966cb1240913e03f0f0e4f8
                 - name: configmap-reload
-                  ref: dhi/configmap-reload:0.15.0-debian13@sha256:bb84720aae56dc7e0a0e8a50d8c17c5f27c985bf76b9d39b99a622e78f971475
+                  ref: dhi/configmap-reload:0.15.0-debian13@sha256:45c352a751aceeb212854b6e2f1db6e763eda38ac0d14d426acc17b03ac55885
                 - name: busybox
                   ref: dhi/busybox:1.37.0-alpine3.22@sha256:eaa4c2f2095e8692b35dceeda1de6250e75e9d3a3ab1d24ead080755cf51c5ca
               name: fluent-bit-chart
