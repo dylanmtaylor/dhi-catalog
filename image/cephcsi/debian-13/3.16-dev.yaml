@@ -19,7 +19,7 @@ vars:
   BASE_REFERENCE: dhi/static:20250419-glibc-debian13@sha256:03c0bb735cf243aac5adbb9da6f1ffea6f157a17531573b8c5f8e1329a3cc724
   CEPH_REFERENCE: dhi/ceph:20.3.0-debian13@sha256:82b7da3de5c515f16d0a141faa37e39ca7eaa51715c71cb94c8b66995f7449de
   COMMIT_SHA: f26e7657f3580126488010bc946ea9dea2a7e89b
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   SEMVER_MAJOR_MINOR_VERSION: "3.16"
   SEMVER_MAJOR_VERSION: "3"
   SEMVER_VERSION: 3.16.2
@@ -52,7 +52,7 @@ contents:
     - xfsprogs
   builds:
     - name: cephcsi
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/ceph/ceph-csi
       caches:
         - path: /go/pkg/mod
