@@ -137,5 +137,15 @@
       "groupId": "io.opentelemetry",
       "artifactId": "opentelemetry-api",
       "version": "1.62.0"
+  },
+  {
+      "groupId": "io.opentelemetry",
+      "artifactId": "opentelemetry-common",
+      "version": "1.62.0"
+  },
+  {
+      "groupId": "io.opentelemetry",
+      "artifactId": "opentelemetry-context",
+      "version": "1.62.0"
   }
 ]
