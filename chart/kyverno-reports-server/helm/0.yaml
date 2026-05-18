@@ -14,7 +14,7 @@ vars:
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
-  KUBECTL_IMAGE_REFERENCE: dhi/kubectl:1.35.5-debian13-compat@sha256:467e61e08f65762a757847e281c8c5d79330b90d92a73c895dac9c3c807c5499
+  KUBECTL_IMAGE_REFERENCE: dhi/kubectl:1.35.5-debian13-compat@sha256:ba5203a1f572fe9734e0521f76815271976872858e0fa13cfeabba993829eca6
   KYVERNO_REPORTS_SERVER_IMAGE_REFERENCE: dhi/kyverno-reports-server:0.1.7-debian13@sha256:6c8496c2989ee63cc4e7c4f386d3e3bba0b3c598234434bb640ae33ad37a2adb
   SEMVER_MAJOR_MINOR_VERSION: "0.1"
   SEMVER_MAJOR_VERSION: "0"
@@ -44,7 +44,7 @@ contents:
                 - name: kyverno-reports-server
                   ref: dhi/kyverno-reports-server:0.1.7-debian13@sha256:6c8496c2989ee63cc4e7c4f386d3e3bba0b3c598234434bb640ae33ad37a2adb
                 - name: kubectl
-                  ref: dhi/kubectl:1.35.5-debian13-compat@sha256:467e61e08f65762a757847e281c8c5d79330b90d92a73c895dac9c3c807c5499
+                  ref: dhi/kubectl:1.35.5-debian13-compat@sha256:ba5203a1f572fe9734e0521f76815271976872858e0fa13cfeabba993829eca6
               name: kyverno-reports-server-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/kyverno/reports-server
