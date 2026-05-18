@@ -71,7 +71,17 @@ contents:
             patches:
               - ${source.dir}/patch/allow_dead_code.patch
               - ${source.dir}/patch/allow_unstable_name_collisions.patch
-              - ${source.dir}/patch/bump-openssl-rustls-webpki-rand.patch
+        - name: bump cargo dependencies
+          work-dir: ${source.dir}/vector-cf8de830c6060629092397fd2334fc0f0219363a
+          privileged: true
+          runs: |
+            set -eux -o pipefail
+
+            # CVE-2026-42327, CVE-2026-44662 → openssl ≥0.10.79
+            sed -i '/^openssl = /s/version = "[^"]*"/version = ">=0.10.79, <0.11"/' Cargo.toml
+
+            # Update dependencies to pull in patched versions
+            cargo update --ignore-rust-version --recursive openssl
         - name: ui sbom
           uses: sbom@v1
           with:
