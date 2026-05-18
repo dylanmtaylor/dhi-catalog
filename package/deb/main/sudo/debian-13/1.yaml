@@ -3,26 +3,28 @@
 image: dhi.io/pkg-sudo
 variant: runtime
 tags:
-  - 1.9.16p2-3-deb13u1dhi0
-  - 1.9.16p2-3-deb13u1dhi0-debian13
+  - 1.9.16p2-3-deb13u2dhi0
+  - 1.9.16p2-3-deb13u2dhi0-debian13
 platforms:
   - linux/amd64
   - linux/arm64
 vars:
-  DEBIAN_DEBIAN_CHECKSUM: sha256:d1e1284ea78cde856060a5240d5a2a528770efcdf1b18131ccb07bd285dde8cf
-  DEBIAN_DEBIAN_FILENAME: sudo_1.9.16p2-3+deb13u1.debian.tar.xz
-  DEBIAN_DEBIAN_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u1.debian.tar.xz
-  DEBIAN_DSC_CHECKSUM: sha256:fd33a987be9b561bc79b52094276264c6beb5edf21fc606e661950e4a314d9af
-  DEBIAN_DSC_FILENAME: sudo_1.9.16p2-3+deb13u1.dsc
-  DEBIAN_DSC_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u1.dsc
-  DEBIAN_FILENAME_VERSION: 1.9.16p2-3+deb13u1
+  DEBIAN_DEBIAN_CHECKSUM: sha256:4479f56745559b879a5ef1a29d3bd41d6b44644888212169eea8c3a363a9b99c
+  DEBIAN_DEBIAN_FILENAME: sudo_1.9.16p2-3+deb13u2.debian.tar.xz
+  DEBIAN_DEBIAN_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u2.debian.tar.xz
+  DEBIAN_DSC_CHECKSUM: sha256:43ba6f6bad19d018e277d6a5a6cdc5245f16d58082f997fc29897081a632bfce
+  DEBIAN_DSC_FILENAME: sudo_1.9.16p2-3+deb13u2.dsc
+  DEBIAN_DSC_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u2.dsc
+  DEBIAN_FILENAME_VERSION: 1.9.16p2-3+deb13u2
+  DEBIAN_ORIG_ASC_CHECKSUM: sha256:52f2a33420ffe6cc2e150f056e51fccf9f3abb6e82c094c7b7b89401ffb62c01
+  DEBIAN_ORIG_ASC_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2.orig.tar.gz.asc
   DEBIAN_ORIG_CHECKSUM: sha256:976aa56d3e3b2a75593307864288addb748c9c136e25d95a9cc699aafa77239c
   DEBIAN_ORIG_FILENAME: sudo_1.9.16p2.orig.tar.gz
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2.orig.tar.gz
-  DEBIAN_VERSION: 1.9.16p2-3+deb13u1
+  DEBIAN_VERSION: 1.9.16p2-3+deb13u2
   DHI_REL: "0"
-  DHI_VERSION: 1.9.16p2-3+deb13u1dhi0
-  TAG_VERSION: 1.9.16p2-3-deb13u1dhi0
+  DHI_VERSION: 1.9.16p2-3+deb13u2dhi0
+  TAG_VERSION: 1.9.16p2-3-deb13u2dhi0
   UPSTREAM_VERSION: 1.9.16p2
 contents:
   packages:
@@ -51,9 +53,9 @@ contents:
           - tzdata
           - zlib1g-dev
         files:
-          - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u1.dsc
-            checksum: sha256:fd33a987be9b561bc79b52094276264c6beb5edf21fc606e661950e4a314d9af
-            path: ${source.dir}/sudo_1.9.16p2-3+deb13u1.dsc
+          - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u2.dsc
+            checksum: sha256:43ba6f6bad19d018e277d6a5a6cdc5245f16d58082f997fc29897081a632bfce
+            path: ${source.dir}/sudo_1.9.16p2-3+deb13u2.dsc
             uid: 0
             gid: 0
           - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2.orig.tar.gz
@@ -61,22 +63,27 @@ contents:
             path: ${source.dir}/sudo_1.9.16p2.orig.tar.gz
             uid: 0
             gid: 0
-          - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u1.debian.tar.xz
-            checksum: sha256:d1e1284ea78cde856060a5240d5a2a528770efcdf1b18131ccb07bd285dde8cf
-            path: ${source.dir}/sudo_1.9.16p2-3+deb13u1.debian.tar.xz
+          - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2.orig.tar.gz.asc
+            checksum: sha256:52f2a33420ffe6cc2e150f056e51fccf9f3abb6e82c094c7b7b89401ffb62c01
+            path: ${source.dir}/sudo_1.9.16p2.orig.tar.gz.asc
+            uid: 0
+            gid: 0
+          - url: https://deb.debian.org/debian/pool/main/s/sudo/sudo_1.9.16p2-3+deb13u2.debian.tar.xz
+            checksum: sha256:4479f56745559b879a5ef1a29d3bd41d6b44644888212169eea8c3a363a9b99c
+            path: ${source.dir}/sudo_1.9.16p2-3+deb13u2.debian.tar.xz
             uid: 0
             gid: 0
       pipeline:
         - uses: dpkg/source@v1
           work-dir: ${source.dir}
           with:
-            file: sudo_1.9.16p2-3+deb13u1.dsc
+            file: sudo_1.9.16p2-3+deb13u2.dsc
             path: sudo
         - uses: dpkg/bump@v1
           with:
             changelog:
               - DHI Rebuild
-            version: 1.9.16p2-3+deb13u1dhi0
+            version: 1.9.16p2-3+deb13u2dhi0
         - uses: dpkg/build@v1
           environment:
             DEB_BUILD_OPTIONS: parallel=1
