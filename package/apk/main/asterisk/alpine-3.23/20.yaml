@@ -3,20 +3,20 @@
 image: dhi.io/pkg-asterisk
 variant: runtime
 tags:
-  - 22.8.2-alpine3.23
-  - 22.8.2-r1-alpine3.23
+  - 22.9.0-alpine3.23
+  - 22.9.0-r0-alpine3.23
 platforms:
   - linux/amd64
   - linux/arm64
 vars:
-  COMMIT_SHA: 16ace2b2515370bee92be1a03ee405c975ac7c18
+  COMMIT_SHA: 026bd6f13b1a72729961f039c94ee2d0117a01f8
   OPUS_COMMIT: a959f072d3f364be983dd27e6e250b038aaef747
   PACKAGE_NAME: main/asterisk
-  REL: "1"
-  SEMVER_MAJOR_MINOR_VERSION: "22.8"
+  REL: "0"
+  SEMVER_MAJOR_MINOR_VERSION: "22.9"
   SEMVER_MAJOR_VERSION: "22"
-  SEMVER_VERSION: 22.8.2
-  VERSION: 22.8.2
+  SEMVER_VERSION: 22.9.0
+  VERSION: 22.9.0
 contents:
   repositories:
     - https://dhi.io/apk/alpine/v3.23/main
@@ -67,12 +67,12 @@ contents:
           - util-linux-dev
           - zlib-dev
         files:
-          - url: git+https://github.com/alpinelinux/aports.git#16ace2b2515370bee92be1a03ee405c975ac7c18
+          - url: git+https://github.com/alpinelinux/aports.git#026bd6f13b1a72729961f039c94ee2d0117a01f8
             path: ${source.dir}/aports
             uid: 0
             gid: 0
-          - url: https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-22.8.2.tar.gz
-            path: /var/cache/distfiles/asterisk-22.8.2.tar.gz
+          - url: https://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-22.9.0.tar.gz
+            path: /var/cache/distfiles/asterisk-22.9.0.tar.gz
             uid: 0
             gid: 0
           - url: https://dev.alpinelinux.org/~tteras/asterisk-addon-mp3-r201.patch.gz
