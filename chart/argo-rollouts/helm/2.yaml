@@ -8,14 +8,14 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  ARGO_ROLLOUTS_REFERENCE: dhi/argo-rollouts:1.9.0-debian13@sha256:ac4cb2c4c0973757c0e8298dd2f61ea30ed8e5fec237ad376fad98a519694b62
+  ARGO_ROLLOUTS_REFERENCE: dhi/argo-rollouts:1.9.0-debian13@sha256:ade76aab9baf65d3d7467e5fa60713f956c04d20bf2c1d104c5bbdd8d9d3a0f3
   CHART_COMMIT_SHA: 0071700ffc396050b4c17b4415610fd9ebb93a3c
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
-  KUBECTL_ARGO_ROLLOUTS_REFERENCE: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:588b656e6b8a5b8706d6ecb0515677600175b554ca3a9b478878a6a50e06e6e9
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  KUBECTL_ARGO_ROLLOUTS_REFERENCE: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:61950ac2d83b6cf687d7a3e55069882a1faf0cd0da096d92428e56d85411a11e
   SEMVER_MAJOR_MINOR_VERSION: "2.40"
   SEMVER_MAJOR_VERSION: "2"
   SEMVER_VERSION: 2.40.9
@@ -23,7 +23,7 @@ vars:
 contents:
   builds:
     - name: argo-rollouts
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
       contents:
         packages:
           - bash
@@ -49,9 +49,9 @@ contents:
               description: Docker Hardened Images Helm chart for Argo Rollouts
               images:
                 - name: argo-rollouts
-                  ref: dhi/argo-rollouts:1.9.0-debian13@sha256:ac4cb2c4c0973757c0e8298dd2f61ea30ed8e5fec237ad376fad98a519694b62
+                  ref: dhi/argo-rollouts:1.9.0-debian13@sha256:ade76aab9baf65d3d7467e5fa60713f956c04d20bf2c1d104c5bbdd8d9d3a0f3
                 - name: kubectl-argo-rollouts
-                  ref: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:588b656e6b8a5b8706d6ecb0515677600175b554ca3a9b478878a6a50e06e6e9
+                  ref: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:61950ac2d83b6cf687d7a3e55069882a1faf0cd0da096d92428e56d85411a11e
               name: argo-rollouts-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/argoproj/argo-helm
