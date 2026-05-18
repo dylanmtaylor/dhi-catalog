@@ -13,8 +13,8 @@ vars:
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
-  KURED_IMAGE_REFERENCE: dhi/kured:1.21.0-debian13@sha256:a9c4eb75591bcaa1a4340bdcc3dedc9fed5a2e9e729649f2d9383f6b15926e64
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  KURED_IMAGE_REFERENCE: dhi/kured:1.21.0-debian13@sha256:0f487c2a3064400c27d11287e4f0a21a37db00b267e11fa47a14fa6d12f735c0
   SEMVER_MAJOR_MINOR_VERSION: "5.11"
   SEMVER_MAJOR_VERSION: "5"
   SEMVER_VERSION: 5.11.0
@@ -22,7 +22,7 @@ vars:
 contents:
   builds:
     - name: kured-chart
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
       work-dir: ${source.dir}/helm-charts/charts/kured
       contents:
         files:
@@ -40,7 +40,7 @@ contents:
               description: Docker Hardened Images Helm chart for Kured
               images:
                 - name: kured
-                  ref: dhi/kured:1.21.0-debian13@sha256:a9c4eb75591bcaa1a4340bdcc3dedc9fed5a2e9e729649f2d9383f6b15926e64
+                  ref: dhi/kured:1.21.0-debian13@sha256:0f487c2a3064400c27d11287e4f0a21a37db00b267e11fa47a14fa6d12f735c0
               name: kured-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/kubereboot/kured
