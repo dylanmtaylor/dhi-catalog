@@ -35,6 +35,7 @@ contents:
     - coreutils
     - diffutils
     - dpkg
+    - e2fsprogs
     - findutils
     - grep
     - libc-bin
@@ -43,6 +44,7 @@ contents:
     - perl-base
     - sed
     - util-linux
+    - xfsprogs
   builds:
     - name: aws-ebs-csi-driver
       uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
@@ -65,7 +67,7 @@ contents:
             gid: 0
       pipeline:
         - name: update go dependencies
-          uses: go/bump@v1
+          uses: go/bump@v2
           with:
             deps:
               - go.opentelemetry.io/otel/sdk@v1.43.0

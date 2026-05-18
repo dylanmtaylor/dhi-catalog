@@ -121,12 +121,16 @@ The node component handles volume attachment and mounting on each Kubernetes nod
 
 - **Privileged Mode**: Must run with `privileged: true` or equivalent capabilities (`SYS_ADMIN`, `MOUNT`, etc.) to mount
   volumes on the host filesystem.
+
 - **Mount Propagation**: Requires `Bidirectional` mount propagation to propagate mounts from the container to the host
   and vice versa.
+
 - **Host Path Access**: Must have access to:
+
   - `/var/lib/kubelet` - Kubelet directory for pod volume mounts
   - `/var/lib/kubelet/plugins/ebs.csi.aws.com` - CSI plugin socket directory
   - `/dev` - Device directory for block device access
+
 - **Node Compatibility**: Can only run on Amazon EC2 instances (not Fargate). EBS volumes cannot be mounted to Fargate
   pods.
 
