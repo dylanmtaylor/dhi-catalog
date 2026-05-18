@@ -8,13 +8,13 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  BLACKBOX_EXPORTER_REFERENCE: dhi/blackbox-exporter:0.28.0-debian13@sha256:3d7d6cf06d0eb60ecea14c16ec88481815ca65cc98c500b44e5ba00c7ede8ff1
+  BLACKBOX_EXPORTER_REFERENCE: dhi/blackbox-exporter:0.28.0-debian13@sha256:7ff4fb470707695be49b2d17f3dc6130c0558200657b6f9334e3e6217e0ffb0f
   CHART_COMMIT_SHA: 9d11947585b0a01c9220dea0e08d505c5c87c395
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
   PROMETHEUS_CONFIG_RELOADER_IMAGE_REFERENCE: dhi/prometheus-config-reloader:0.91.0-debian13@sha256:663521947cad99f56d0550697a339d39296e4475bf769aa8fb1c7c220ab713fd
   SEMVER_MAJOR_MINOR_VERSION: "11.10"
   SEMVER_MAJOR_VERSION: "11"
@@ -23,7 +23,7 @@ vars:
 contents:
   builds:
     - name: blackbox-exporter-chart
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
       contents:
         files:
           - url: git+https://github.com/prometheus-community/helm-charts.git#prometheus-blackbox-exporter-11.10.0
@@ -41,7 +41,7 @@ contents:
               description: Docker Hardened Images Helm chart for Prometheus Blackbox Exporter
               images:
                 - name: blackbox-exporter
-                  ref: dhi/blackbox-exporter:0.28.0-debian13@sha256:3d7d6cf06d0eb60ecea14c16ec88481815ca65cc98c500b44e5ba00c7ede8ff1
+                  ref: dhi/blackbox-exporter:0.28.0-debian13@sha256:7ff4fb470707695be49b2d17f3dc6130c0558200657b6f9334e3e6217e0ffb0f
                 - name: prometheus-config-reloader
                   ref: dhi/prometheus-config-reloader:0.91.0-debian13@sha256:663521947cad99f56d0550697a339d39296e4475bf769aa8fb1c7c220ab713fd
               name: blackbox-exporter-chart
