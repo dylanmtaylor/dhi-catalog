@@ -22,8 +22,8 @@ vars:
   CILIUM_ENVOY_COMMIT_SHA: 2437d2edeaf4d9b56ef279bd0d71127440c067aa
   CILIUM_ENVOY_VERSION: 1.36.6
   CLANG_VERSION: "18"
-  GO_REFERENCE: dhi/golang:1.26.2-debian13-dev@sha256:b50864310796206ff91b76f04e0cd4f13c29b7721d7571336bfc75a116c40693
-  PYTHON_REFERENCE: dhi/python:3.12.13-debian13@sha256:4dd4f1220ff6d6311d2f0724c0c6c50986284b93414ac5f1eae91ff2e9af9662
+  GO_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
+  PYTHON_REFERENCE: dhi/python:3.12.13-debian13@sha256:c574e5c4254e262e30c952170bf02bcf58ee846fdab31a4b98b34b18e11ae282
   SEMVER_MAJOR_MINOR_VERSION: "1.17"
   SEMVER_MAJOR_VERSION: "1"
   SEMVER_VERSION: 1.17.15
@@ -35,7 +35,7 @@ contents:
     - libatomic1
   builds:
     - name: cilium-envoy
-      uses: dhi.io/golang:1.26.2-debian13-dev@sha256:b50864310796206ff91b76f04e0cd4f13c29b7721d7571336bfc75a116c40693
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       environment:
         PATH: /opt/bazel/bin:/opt/python/bin:/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       caches:
@@ -87,7 +87,7 @@ contents:
             gid: 0
             mode: "0755"
         artifacts:
-          - name: dhi.io/python:3.12.13-debian13@sha256:4dd4f1220ff6d6311d2f0724c0c6c50986284b93414ac5f1eae91ff2e9af9662
+          - name: dhi.io/python:3.12.13-debian13@sha256:c574e5c4254e262e30c952170bf02bcf58ee846fdab31a4b98b34b18e11ae282
             includes:
               - opt/**
             uid: 0
