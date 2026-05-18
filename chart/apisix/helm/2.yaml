@@ -9,14 +9,14 @@ platforms:
   - linux/amd64
 vars:
   APISIX_IMAGE_REFERENCE: dhi/apisix:3.16.0-debian13@sha256:a9367712b0fc31b39b23c62e552c7c219becc46422d6884a4cd22d9756affba6
-  APISIX_INGRESS_CONTROLLER_CHART_REFERENCE: dhi/apisix-ingress-controller-chart:1.1.2@sha256:c4382f16c315890c31c275913a4b0f6a8dea0fdd7ba90f902375c70dfeeeb025
+  APISIX_INGRESS_CONTROLLER_CHART_REFERENCE: dhi/apisix-ingress-controller-chart:1.1.2@sha256:3c5afaf3b7135fb52a721cbc02636b8e4b68af4cf137655d26d3db00f3debdcb
   BUSYBOX_IMAGE_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
   CHART_COMMIT_SHA: 60c9cbbfe0c03aba53bdf9644f491c90204a43cd
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
   SEMVER_MAJOR_MINOR_VERSION: "2.14"
   SEMVER_MAJOR_VERSION: "2"
   SEMVER_VERSION: 2.14.0
@@ -24,7 +24,7 @@ vars:
 contents:
   builds:
     - name: apisix-chart
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:382206314efea5932384da4cbb019ef72b83d65f2cc8fb2ba0acc7e8a31e5cf8
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
       contents:
         files:
           - url: git+https://github.com/apache/apisix-helm-chart.git#apisix-2.14.0
@@ -43,7 +43,7 @@ contents:
                 - alias: ingress-controller
                   condition: ingress-controller.enabled
                   name: apisix-ingress-controller-chart
-                  ref: dhi/apisix-ingress-controller-chart:1.1.2@sha256:c4382f16c315890c31c275913a4b0f6a8dea0fdd7ba90f902375c70dfeeeb025
+                  ref: dhi/apisix-ingress-controller-chart:1.1.2@sha256:3c5afaf3b7135fb52a721cbc02636b8e4b68af4cf137655d26d3db00f3debdcb
               description: Docker Hardened Images Helm chart for APISIX
               images:
                 - name: apisix
