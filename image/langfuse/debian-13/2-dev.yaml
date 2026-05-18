@@ -20,7 +20,7 @@ vars:
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
   MIGRATE_COMMIT_SHA: 9023d66a0b649dbd6c99950903ebc7fd90d77ded
   MIGRATE_VERSION: 4.18.3
-  NODE_BUILD_REFERENCE: dhi/node:20.20.2-debian13-dev@sha256:5b5ae5852904a114ac2ccf3a0ac1c58863c413e0751d9db9542c37ef4a0d441b
+  NODE_BUILD_REFERENCE: dhi/node:20.20.2-debian13-dev@sha256:daeb0711520279b9c0395725f2ef22e378c2d3097bc2815e0d57c558794650db
   NODE_RUNTIME_REFERENCE: dhi/node:20.20.2-debian13@sha256:60cab4366868993cf1307ee868c0e99b33c05ab751146ff8e5fbdffc85ac5fd0
   PNPM_VERSION: 9.5.0
   PRISMA_VERSION: 5.22.0
@@ -103,7 +103,7 @@ contents:
           uid: 0
           gid: 0
     - name: langfuse
-      uses: dhi.io/node:20.20.2-debian13-dev@sha256:5b5ae5852904a114ac2ccf3a0ac1c58863c413e0751d9db9542c37ef4a0d441b
+      uses: dhi.io/node:20.20.2-debian13-dev@sha256:daeb0711520279b9c0395725f2ef22e378c2d3097bc2815e0d57c558794650db
       work-dir: ${source.dir}/langfuse
       environment:
         CI: "true"
