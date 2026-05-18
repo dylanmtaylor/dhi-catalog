@@ -19,8 +19,8 @@ vars:
   IMAGEMAGICK_VERSION: 7.1.2-22
   IMAGICK_COMMIT_SHA: 70087bab33eab913e99ac77d64d04d1a2fd0b7b0
   IMAGICK_VERSION: 3.8.1
-  PHP_DEV_REFERENCE: dhi/php:8.5.6-debian13-dev@sha256:481ab749ad2954e47e7fa4bb3919a162248562307b9ad326e6080581fc4fcfa0
-  PHP_FPM_REFERENCE: dhi/php:8.5.6-debian13-fpm@sha256:39b7e2283e488609029d64d00fe6ba8aab5ed29cf00177b1f09917645be1a6fb
+  PHP_DEV_REFERENCE: dhi/php:8.5.6-debian13-dev@sha256:26ef81e2dc368eafd4892bb4aa954dbace57d36b8162ac46542f2ca6c2db10d4
+  PHP_FPM_REFERENCE: dhi/php:8.5.6-debian13-fpm@sha256:d8cd4c9671ecee1ff8a21286a5b857bcb87d5779795beebd18c2f4712bd534b8
   PHP_INI_DIR: /opt/php-8.5/etc/php
   PHP_MAJOR_MINOR: "8.5"
   PHP_PREFIX: /opt/php-8.5
@@ -76,7 +76,7 @@ contents:
       mode: "0644"
   builds:
     - name: build php extensions
-      uses: dhi.io/php:8.5.6-debian13-dev@sha256:481ab749ad2954e47e7fa4bb3919a162248562307b9ad326e6080581fc4fcfa0
+      uses: dhi.io/php:8.5.6-debian13-dev@sha256:26ef81e2dc368eafd4892bb4aa954dbace57d36b8162ac46542f2ca6c2db10d4
       shell: bash
       contents:
         packages:
@@ -248,7 +248,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/php:8.5.6-debian13-fpm@sha256:39b7e2283e488609029d64d00fe6ba8aab5ed29cf00177b1f09917645be1a6fb
+    - name: dhi.io/php:8.5.6-debian13-fpm@sha256:d8cd4c9671ecee1ff8a21286a5b857bcb87d5779795beebd18c2f4712bd534b8
       includes:
         - opt/docker/sbom/php
         - opt/php-8.5
