@@ -6,52 +6,47 @@ variant: runtime
 tags:
   - "7"
   - "7.6"
-  - 7.6.3
+  - 7.6.4
   - 7-debian13
   - 7.6-debian13
-  - 7.6.3-debian13
+  - 7.6.4-debian13
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
   release: "2025-06-11"
 vars:
-  COMMIT_SHA: a67d282c77bb719db6bd5bef006fdd564a9c1add
-  NODE_BUILD_REFERENCE: dhi/node:22.22.2-debian13-dev@sha256:060d17b972a6c2519b3a105e8bddf21cb8eecca720ced9f78185a1baeffb8b8e
-  NODE_RUNTIME_REFERENCE: dhi/node:22.22.2-debian13@sha256:0ae7509e1408fa38c1e5a36c44d9606ed61ba72dbfdf992455ae63c12d267abe
+  COMMIT_SHA: 97cfa86cfb0e7423d3ff0605227b04b71709be0c
+  NODE_BUILD_REFERENCE: dhi/node:22.22.3-debian13-dev@sha256:1786c391bba5542c038f7750a6922edf2adbbb3b9994501294ed60120fe47363
+  NODE_RUNTIME_REFERENCE: dhi/node:22.22.3-debian13@sha256:73c6d124d1e077bda1b6cfb3f49daa9bdfd44833c06a85bfbd24a6d2f4dc5e33
   SEMVER_MAJOR_MINOR_VERSION: "7.6"
   SEMVER_MAJOR_VERSION: "7"
-  SEMVER_VERSION: 7.6.3
-  VERSION: 7.6.3
+  SEMVER_VERSION: 7.6.4
+  VERSION: 7.6.4
 contents:
   packages:
     - '!base-files'
   builds:
     - name: unleash
-      uses: dhi.io/node:22.22.2-debian13-dev@sha256:060d17b972a6c2519b3a105e8bddf21cb8eecca720ced9f78185a1baeffb8b8e
+      uses: dhi.io/node:22.22.3-debian13-dev@sha256:1786c391bba5542c038f7750a6922edf2adbbb3b9994501294ed60120fe47363
       work-dir: ${source.dir}/unleash
       caches:
         - path: /usr/local/share/.cache/yarn
       contents:
         files:
-          - url: git+https://github.com/Unleash/unleash.git#v7.6.3
-            checksum: a67d282c77bb719db6bd5bef006fdd564a9c1add
+          - url: git+https://github.com/Unleash/unleash.git#v7.6.4
+            checksum: 97cfa86cfb0e7423d3ff0605227b04b71709be0c
             path: ${source.dir}/unleash
             spdx:
               name: unleash
-              version: 7.6.3
+              version: 7.6.4
               packages:
                 - name: unleash
-                  purl: pkg:npm/unleash-server@7.6.3
+                  purl: pkg:npm/unleash-server@7.6.4
                   license: Apache-2.0
             uid: 0
             gid: 0
       pipeline:
-        - name: patch axios CVEs
-          uses: git/patch@v1
-          with:
-            dir: ${source.dir}/unleash
-            patch: ${source.dir}/patches/axios-1.15.2.patch
         - name: install and build
           privileged: true
           runs: |
@@ -110,11 +105,6 @@ contents:
             cp -r node_modules "${target.dir}/opt/unleash/"
       paths:
         - type: file
-          path: ${source.dir}/patches/axios-1.15.2.patch
-          uid: 0
-          gid: 0
-          source: image/unleash/patch/axios-1.15.2.patch
-        - type: file
           path: ${source.dir}/patches/frontend-deps.patch
           uid: 0
           gid: 0
@@ -133,7 +123,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/node:22.22.2-debian13@sha256:0ae7509e1408fa38c1e5a36c44d9606ed61ba72dbfdf992455ae63c12d267abe
+    - name: dhi.io/node:22.22.3-debian13@sha256:73c6d124d1e077bda1b6cfb3f49daa9bdfd44833c06a85bfbd24a6d2f4dc5e33
       excludes:
         - etc
         - var/run
