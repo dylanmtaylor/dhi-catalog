@@ -8,7 +8,7 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  ARGOCD_IMAGE_UPDATER_REFERENCE: dhi/argocd-image-updater:1.2.0-debian13@sha256:3b63420397cce5b415eda6892ebda14af34fe2e670f0ce595da51b755741a99a
+  ARGOCD_IMAGE_UPDATER_REFERENCE: dhi/argocd-image-updater:1.2.0-debian13@sha256:fffd17263c5b52e1dde646108b24c0f9895d70705290480734c7c2c610d9c9fd
   CHART_COMMIT_SHA: 0a8c0a87069d7e02e43105160090572c3382238c
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
@@ -47,7 +47,7 @@ contents:
               description: Docker Hardened Images Helm chart for Argo CD Image Updater
               images:
                 - name: argocd-image-updater
-                  ref: dhi/argocd-image-updater:1.2.0-debian13@sha256:3b63420397cce5b415eda6892ebda14af34fe2e670f0ce595da51b755741a99a
+                  ref: dhi/argocd-image-updater:1.2.0-debian13@sha256:fffd17263c5b52e1dde646108b24c0f9895d70705290480734c7c2c610d9c9fd
               name: argocd-image-updater-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/argoproj/argo-helm
