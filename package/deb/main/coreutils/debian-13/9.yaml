@@ -3,8 +3,8 @@
 image: dhi.io/pkg-coreutils
 variant: runtime
 tags:
-  - 9.7-3-dhi1
-  - 9.7-3-dhi1-debian13
+  - 9.7-3-dhi2
+  - 9.7-3-dhi2-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -22,9 +22,9 @@ vars:
   DEBIAN_ORIG_FILENAME: coreutils_9.7.orig.tar.xz
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/c/coreutils/coreutils_9.7.orig.tar.xz
   DEBIAN_VERSION: 9.7-3
-  DHI_REL: "1"
-  DHI_VERSION: 9.7-3+dhi1
-  TAG_VERSION: 9.7-3-dhi1
+  DHI_REL: "2"
+  DHI_VERSION: 9.7-3+dhi2
+  TAG_VERSION: 9.7-3-dhi2
   UPSTREAM_VERSION: "9.7"
 contents:
   packages:
@@ -44,7 +44,9 @@ contents:
           - libselinux1-dev
           - libssl-dev
           - libsystemd-dev
+          - quilt
           - texinfo
+          - util-linux
           - xz-utils
         files:
           - url: https://deb.debian.org/debian/pool/main/c/coreutils/coreutils_9.7-3.dsc
@@ -73,14 +75,27 @@ contents:
           with:
             file: coreutils_9.7-3.dsc
             path: coreutils
+        - uses: dpkg/patch@v1
+          with:
+            apply: true
+            patches:
+              - ${source.dir}/patch/dhi-cve-2025-5278-sort-field-limit.patch
         - uses: dpkg/bump@v1
           with:
-            version: 9.7-3+dhi1
+            changelog:
+              - Backport upstream fix for CVE-2025-5278
+            version: 9.7-3+dhi2
         - uses: dpkg/build@v1
           environment:
             FORCE_UNSAFE_CONFIGURE: "1"
           with:
             args: -uc -us -d
+      paths:
+        - type: directory
+          path: ${source.dir}/patch
+          uid: 0
+          gid: 0
+          source: package/deb/main/coreutils/patch
 os-release:
   name: Docker Hardened Images (Debian)
   id: debian
