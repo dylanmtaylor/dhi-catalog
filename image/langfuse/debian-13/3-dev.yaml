@@ -5,30 +5,30 @@ image: dhi.io/langfuse
 variant: dev
 tags:
   - 3-dev
-  - 3.173-dev
-  - 3.173.0-dev
+  - 3.174-dev
+  - 3.174.1-dev
   - 3-debian13-dev
-  - 3.173-debian13-dev
-  - 3.173.0-debian13-dev
+  - 3.174-debian13-dev
+  - 3.174.1-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
   release: "2024-12-09"
 vars:
-  COMMIT_SHA: 19449c25f4e9284fe54ceed717bbc706c082d1f3
+  COMMIT_SHA: 1e3535e126fc918781f45753706ff0f576b12175
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   MIGRATE_COMMIT_SHA: 89e308c340a2c069c3260f268307d38a7db88227
   MIGRATE_VERSION: 4.19.1
-  NODE_BUILD_REFERENCE: dhi/node:24.15.0-debian13-dev@sha256:2b7a995efdf9ff85ab6cd2e91e2e2f9eba8c2c05d8c19dc28c28a10b30617659
-  NODE_RUNTIME_REFERENCE: dhi/node:24.15.0-debian13@sha256:36c6a39aadb0d2d10180e0fb0e653966457480afc6b02b0669656757d5c8da5b
+  NODE_BUILD_REFERENCE: dhi/node:24.15.0-debian13-dev@sha256:57c274be45f65db1a54c18f7ec58b5f647a3cbbffcc8b7aa4687e649bea7489b
+  NODE_RUNTIME_REFERENCE: dhi/node:24.15.0-debian13@sha256:12dd3a0b044f9601e987ecfd9fa728118375bcb418435d8780e1a95f8fb01317
   PNPM_VERSION: 10.33.0
   PRISMA_VERSION: 6.19.3
-  SEMVER_MAJOR_MINOR_VERSION: "3.173"
+  SEMVER_MAJOR_MINOR_VERSION: "3.174"
   SEMVER_MAJOR_VERSION: "3"
-  SEMVER_VERSION: 3.173.0
+  SEMVER_VERSION: 3.174.1
   TURBO_VERSION: 2.9.5
-  VERSION: 3.173.0
+  VERSION: 3.174.1
 contents:
   packages:
     - '!gawk'
@@ -103,7 +103,7 @@ contents:
           uid: 0
           gid: 0
     - name: langfuse
-      uses: dhi.io/node:24.15.0-debian13-dev@sha256:2b7a995efdf9ff85ab6cd2e91e2e2f9eba8c2c05d8c19dc28c28a10b30617659
+      uses: dhi.io/node:24.15.0-debian13-dev@sha256:57c274be45f65db1a54c18f7ec58b5f647a3cbbffcc8b7aa4687e649bea7489b
       work-dir: ${source.dir}/langfuse
       environment:
         CI: "true"
@@ -116,15 +116,15 @@ contents:
         - path: /root/.cache
       contents:
         files:
-          - url: git+https://github.com/langfuse/langfuse.git#v3.173.0
-            checksum: 19449c25f4e9284fe54ceed717bbc706c082d1f3
+          - url: git+https://github.com/langfuse/langfuse.git#v3.174.1
+            checksum: 1e3535e126fc918781f45753706ff0f576b12175
             path: ${source.dir}/langfuse
             spdx:
               name: langfuse
-              version: 3.173.0
+              version: 3.174.1
               packages:
                 - name: langfuse
-                  purl: pkg:github/langfuse/langfuse@3.173.0
+                  purl: pkg:github/langfuse/langfuse@3.174.1
                   license: MIT
             uid: 0
             gid: 0
@@ -294,7 +294,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/node:24.15.0-debian13@sha256:36c6a39aadb0d2d10180e0fb0e653966457480afc6b02b0669656757d5c8da5b
+    - name: dhi.io/node:24.15.0-debian13@sha256:12dd3a0b044f9601e987ecfd9fa728118375bcb418435d8780e1a95f8fb01317
       includes:
         - opt/**
         - usr/**
