@@ -3,8 +3,8 @@
 image: dhi.io/pkg-coreutils
 variant: runtime
 tags:
-  - 9.7-3dhi1
-  - 9.7-3dhi1-debian13
+  - 9.7-3-dhi1
+  - 9.7-3-dhi1-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -23,8 +23,8 @@ vars:
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/c/coreutils/coreutils_9.7.orig.tar.xz
   DEBIAN_VERSION: 9.7-3
   DHI_REL: "1"
-  DHI_VERSION: 9.7-3dhi1
-  TAG_VERSION: 9.7-3dhi1
+  DHI_VERSION: 9.7-3+dhi1
+  TAG_VERSION: 9.7-3-dhi1
   UPSTREAM_VERSION: "9.7"
 contents:
   packages:
@@ -75,9 +75,7 @@ contents:
             path: coreutils
         - uses: dpkg/bump@v1
           with:
-            changelog:
-              - DHI Rebuild
-            version: 9.7-3dhi1
+            version: 9.7-3+dhi1
         - uses: dpkg/build@v1
           environment:
             FORCE_UNSAFE_CONFIGURE: "1"

@@ -3,8 +3,8 @@
 image: dhi.io/pkg-gnu-which
 variant: runtime
 tags:
-  - 2.21-dfsg-5dhi0
-  - 2.21-dfsg-5dhi0-debian13
+  - 2.21-dfsg-5-dhi0
+  - 2.21-dfsg-5-dhi0-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -21,8 +21,8 @@ vars:
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/g/gnu-which/gnu-which_2.21+dfsg.orig.tar.gz
   DEBIAN_VERSION: 2.21+dfsg-5
   DHI_REL: "0"
-  DHI_VERSION: 2.21+dfsg-5dhi0
-  TAG_VERSION: 2.21-dfsg-5dhi0
+  DHI_VERSION: 2.21+dfsg-5+dhi0
+  TAG_VERSION: 2.21-dfsg-5-dhi0
   UPSTREAM_VERSION: 2.21+dfsg
 contents:
   packages:
@@ -59,9 +59,7 @@ contents:
             path: gnu-which
         - uses: dpkg/bump@v1
           with:
-            changelog:
-              - DHI Rebuild
-            version: 2.21+dfsg-5dhi0
+            version: 2.21+dfsg-5+dhi0
         - uses: dpkg/build@v1
           with:
             args: -uc -us -d

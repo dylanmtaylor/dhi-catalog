@@ -3,8 +3,8 @@
 image: dhi.io/pkg-acl
 variant: runtime
 tags:
-  - 2.3.2-2dhi0
-  - 2.3.2-2dhi0-debian13
+  - 2.3.2-2-dhi0
+  - 2.3.2-2-dhi0-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -23,8 +23,8 @@ vars:
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/a/acl/acl_2.3.2.orig.tar.xz
   DEBIAN_VERSION: 2.3.2-2
   DHI_REL: "0"
-  DHI_VERSION: 2.3.2-2dhi0
-  TAG_VERSION: 2.3.2-2dhi0
+  DHI_VERSION: 2.3.2-2+dhi0
+  TAG_VERSION: 2.3.2-2-dhi0
   UPSTREAM_VERSION: 2.3.2
 contents:
   packages:
@@ -71,9 +71,7 @@ contents:
             path: acl
         - uses: dpkg/bump@v1
           with:
-            changelog:
-              - DHI Rebuild
-            version: 2.3.2-2dhi0
+            version: 2.3.2-2+dhi0
         - uses: dpkg/build@v1
           with:
             args: -uc -us -d

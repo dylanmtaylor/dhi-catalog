@@ -3,8 +3,8 @@
 image: dhi.io/pkg-gawk
 variant: runtime
 tags:
-  - 1-5.2.1-2dhi0
-  - 1-5.2.1-2dhi0-debian13
+  - 1-5.2.1-2-dhi0
+  - 1-5.2.1-2-dhi0-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -21,8 +21,8 @@ vars:
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/g/gawk/gawk_5.2.1.orig.tar.xz
   DEBIAN_VERSION: 1:5.2.1-2
   DHI_REL: "0"
-  DHI_VERSION: 1:5.2.1-2dhi0
-  TAG_VERSION: 1-5.2.1-2dhi0
+  DHI_VERSION: 1:5.2.1-2+dhi0
+  TAG_VERSION: 1-5.2.1-2-dhi0
   UPSTREAM_VERSION: 5.2.1
 contents:
   packages:
@@ -66,9 +66,7 @@ contents:
             path: gawk
         - uses: dpkg/bump@v1
           with:
-            changelog:
-              - DHI Rebuild
-            version: 1:5.2.1-2dhi0
+            version: 1:5.2.1-2+dhi0
         - uses: dpkg/build@v1
           environment:
             DEB_LDFLAGS_APPEND: -Wl,-z,noexecstack -Wl,--as-needed
