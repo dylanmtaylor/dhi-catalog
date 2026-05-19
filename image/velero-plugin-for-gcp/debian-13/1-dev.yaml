@@ -6,22 +6,22 @@ variant: dev
 tags:
   - 1-dev
   - 1.14-dev
-  - 1.14.0-dev
+  - 1.14.1-dev
   - 1-debian13-dev
   - 1.14-debian13-dev
-  - 1.14.0-debian13-dev
+  - 1.14.1-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 vars:
   BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
   BASE_TAG: 20250419-debian13
-  COMMIT_SHA: 1051f9f9f1309860ed9e057878819904f71f19df
+  COMMIT_SHA: 6902b360e6c2a81d4125f12ddf5cb22f98bbfd14
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   SEMVER_MAJOR_MINOR_VERSION: "1.14"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.14.0
-  VERSION: 1.14.0
+  SEMVER_VERSION: 1.14.1
+  VERSION: 1.14.1
 contents:
   packages:
     - '!base-files'
@@ -46,15 +46,15 @@ contents:
       uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       contents:
         files:
-          - url: git+https://github.com/vmware-tanzu/velero-plugin-for-gcp.git#v1.14.0
-            checksum: 1051f9f9f1309860ed9e057878819904f71f19df
+          - url: git+https://github.com/vmware-tanzu/velero-plugin-for-gcp.git#v1.14.1
+            checksum: 6902b360e6c2a81d4125f12ddf5cb22f98bbfd14
             path: /go/src/github.com/vmware-tanzu/velero-plugin-for-gcp
             spdx:
               name: velero-plugin-for-gcp
-              version: 1.14.0
+              version: 1.14.1
               packages:
                 - name: velero-plugin-for-gcp
-                  purl: pkg:dhi/velero-plugin-for-gcp@1.14.0
+                  purl: pkg:dhi/velero-plugin-for-gcp@1.14.1
                   license: Apache-2.0
             uid: 0
             gid: 0
