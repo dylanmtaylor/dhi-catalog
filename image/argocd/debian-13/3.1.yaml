@@ -16,12 +16,12 @@ dates:
 vars:
   ARGOCD_USER_ID: "999"
   COMMIT_SHA: 5d001b80990d14c0fc9b2cbee1eac25fc288da15
-  EXPAT_REF: dhi/pkg-expat:2.8.1-debian13@sha256:25fdf661242f7dedae95752d9fb13c8d10481d23471903e8769b83aaa358f6f0
-  GIT_LFS_REF: dhi/pkg-git-lfs:3.7.1-debian13@sha256:fae1b415cf11b327957b5b72fe051dbf5e8a9ac53d9c82d516756f473bdc5cb1
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
-  HELM_REF: dhi/helm:3.21.0-debian13@sha256:aa73e03c5109c44dff199519d0c81e07c77067db2bacb82f73191375500e172e
-  KUSTOMIZE_REF: dhi/kustomize:5.8.1-debian13@sha256:7206864a24c6396553ea4ea28d5627c887d16645b61fef3d037758e9cfb3302f
-  NODE_REF: dhi/node:24.15.0-debian13-dev@sha256:4e28305aaa96fda512a778c1695ca1e901d8b5a6e9cb5c122fc6fcec88c41e8c
+  EXPAT_REF: dhi/pkg-expat:2.8.1-debian13@sha256:fadd9a04bbefababb203f4b4df9adcccded340c463ff39382ad3780863050f1e
+  GIT_LFS_REF: dhi/pkg-git-lfs:3.7.1-debian13@sha256:9b7a8ec84649c7a09085181d5cd079503908a9484dbfd9d35d9f4f9d64eb4af0
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
+  HELM_REF: dhi/helm:3.21.0-debian13@sha256:bfd7e12d65ba383d30ff777a270bdd0a288b14b5dada744ba55e8fa5263c0fec
+  KUSTOMIZE_REF: dhi/kustomize:5.8.1-debian13@sha256:54774fc22fe7b99b23374430d17f518d6204261012d29aae0a2aaa9d2d1b8469
+  NODE_REF: dhi/node:24.15.0-debian13-dev@sha256:57c274be45f65db1a54c18f7ec58b5f647a3cbbffcc8b7aa4687e649bea7489b
   SEMVER_MAJOR_MINOR_VERSION: "3.1"
   SEMVER_MAJOR_VERSION: "3"
   SEMVER_VERSION: 3.1.16
@@ -45,7 +45,7 @@ contents:
     - tzdata
   builds:
     - name: argocd-go
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:6e257a15c0aa81a30cd698e950469f07dd71d6c7e4c6a30e0badbf9494b1d6f3
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       contents:
         packages:
           - curl
@@ -71,7 +71,7 @@ contents:
             uid: 0
             gid: 0
         artifacts:
-          - name: dhi.io/node:24.15.0-debian13-dev@sha256:4e28305aaa96fda512a778c1695ca1e901d8b5a6e9cb5c122fc6fcec88c41e8c
+          - name: dhi.io/node:24.15.0-debian13-dev@sha256:57c274be45f65db1a54c18f7ec58b5f647a3cbbffcc8b7aa4687e649bea7489b
             includes:
               - opt/nodejs
               - opt/yarn
@@ -79,19 +79,19 @@ contents:
               - usr/local/bin/yarn
             uid: 0
             gid: 0
-          - name: dhi.io/helm:3.21.0-debian13@sha256:aa73e03c5109c44dff199519d0c81e07c77067db2bacb82f73191375500e172e
+          - name: dhi.io/helm:3.21.0-debian13@sha256:bfd7e12d65ba383d30ff777a270bdd0a288b14b5dada744ba55e8fa5263c0fec
             includes:
               - opt/**
               - usr/**
             uid: 0
             gid: 0
-          - name: dhi.io/pkg-git-lfs:3.7.1-debian13@sha256:fae1b415cf11b327957b5b72fe051dbf5e8a9ac53d9c82d516756f473bdc5cb1
+          - name: dhi.io/pkg-git-lfs:3.7.1-debian13@sha256:9b7a8ec84649c7a09085181d5cd079503908a9484dbfd9d35d9f4f9d64eb4af0
             includes:
               - opt/**
               - usr/**
             uid: 0
             gid: 0
-          - name: dhi.io/kustomize:5.8.1-debian13@sha256:7206864a24c6396553ea4ea28d5627c887d16645b61fef3d037758e9cfb3302f
+          - name: dhi.io/kustomize:5.8.1-debian13@sha256:54774fc22fe7b99b23374430d17f518d6204261012d29aae0a2aaa9d2d1b8469
             includes:
               - opt/**
               - usr/**
@@ -209,26 +209,26 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/pkg-expat:2.8.1-debian13@sha256:25fdf661242f7dedae95752d9fb13c8d10481d23471903e8769b83aaa358f6f0
+    - name: dhi.io/pkg-expat:2.8.1-debian13@sha256:fadd9a04bbefababb203f4b4df9adcccded340c463ff39382ad3780863050f1e
       includes:
         - opt/**
         - usr/**
         - var/lib/dpkg/status.d
       uid: 0
       gid: 0
-    - name: dhi.io/helm:3.21.0-debian13@sha256:aa73e03c5109c44dff199519d0c81e07c77067db2bacb82f73191375500e172e
+    - name: dhi.io/helm:3.21.0-debian13@sha256:bfd7e12d65ba383d30ff777a270bdd0a288b14b5dada744ba55e8fa5263c0fec
       includes:
         - opt/**
         - usr/**
       uid: 0
       gid: 0
-    - name: dhi.io/pkg-git-lfs:3.7.1-debian13@sha256:fae1b415cf11b327957b5b72fe051dbf5e8a9ac53d9c82d516756f473bdc5cb1
+    - name: dhi.io/pkg-git-lfs:3.7.1-debian13@sha256:9b7a8ec84649c7a09085181d5cd079503908a9484dbfd9d35d9f4f9d64eb4af0
       includes:
         - opt/**
         - usr/**
       uid: 0
       gid: 0
-    - name: dhi.io/kustomize:5.8.1-debian13@sha256:7206864a24c6396553ea4ea28d5627c887d16645b61fef3d037758e9cfb3302f
+    - name: dhi.io/kustomize:5.8.1-debian13@sha256:54774fc22fe7b99b23374430d17f518d6204261012d29aae0a2aaa9d2d1b8469
       includes:
         - opt/**
         - usr/**
