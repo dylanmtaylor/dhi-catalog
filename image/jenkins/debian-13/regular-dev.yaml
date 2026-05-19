@@ -4,8 +4,8 @@ name: Jenkins 2.x (weekly) (dev)
 image: dhi.io/jenkins
 variant: dev
 tags:
-  - 2.564-dev
-  - 2.564-debian13-dev
+  - 2.565-dev
+  - 2.565-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
@@ -18,9 +18,9 @@ vars:
   BUILD_JDK_DIGEST: sha256:94af871b695a132ebc47af06f5acb29aa53632092047e5622a4fd6b2c85ecc34
   BUILD_JDK_REF: dhi/eclipse-temurin:21.0.11.10-jdk-debian13-dev@sha256:94af871b695a132ebc47af06f5acb29aa53632092047e5622a4fd6b2c85ecc34
   BUILD_JDK_VERSION: 21.0.11.10
-  COMMIT_SHA: ef356193775cbcdc3cc6965a02c8f2dc2b2f4558
-  DOCKER_REPO_COMMIT_SHA: 66b2ecc17c2f3ef750ef8cf7d4a3674f95b3fe7a
-  DOCKER_REPO_VERSION: "2.564"
+  COMMIT_SHA: 0795dd3a7c9a2c20f15592529d21852145e67e62
+  DOCKER_REPO_COMMIT_SHA: 000a9c34e417ee8142cbcfd6b17992c8cfa8caf6
+  DOCKER_REPO_VERSION: "2.565"
   JAVA_HOME_PATH: /opt/java/openjdk/21-jre
   JAVA_MAJOR_VERSION: "21"
   JDK_MAJOR_VERSION: "21"
@@ -31,9 +31,9 @@ vars:
   MAVEN_DIGEST: sha256:fd18a70a9943afff0d097431142e99d61535f118984959513de4c42164a59b57
   MAVEN_REF: dhi/maven:3.9.16-jdk21-debian13-dev@sha256:fd18a70a9943afff0d097431142e99d61535f118984959513de4c42164a59b57
   MAVEN_VERSION: 3.9.16
-  SEMVER_MAJOR_MINOR_VERSION: "2.564"
+  SEMVER_MAJOR_MINOR_VERSION: "2.565"
   SEMVER_MAJOR_VERSION: "2"
-  VERSION: "2.564"
+  VERSION: "2.565"
 contents:
   packages:
     - '!gawk'
@@ -80,20 +80,20 @@ contents:
           - unzip
           - zip
         files:
-          - url: git+https://github.com/jenkinsci/jenkins.git#jenkins-2.564
-            checksum: ef356193775cbcdc3cc6965a02c8f2dc2b2f4558
+          - url: git+https://github.com/jenkinsci/jenkins.git#jenkins-2.565
+            checksum: 0795dd3a7c9a2c20f15592529d21852145e67e62
             path: ${source.dir}/jenkins
             spdx:
               name: jenkins
-              version: "2.564"
+              version: "2.565"
               packages:
                 - name: jenkins
-                  purl: pkg:dhi/jenkins@2.564
+                  purl: pkg:dhi/jenkins@2.565
                   license: MIT
             uid: 0
             gid: 0
-          - url: git+https://github.com/jenkinsci/docker.git#66b2ecc17c2f3ef750ef8cf7d4a3674f95b3fe7a
-            checksum: 66b2ecc17c2f3ef750ef8cf7d4a3674f95b3fe7a
+          - url: git+https://github.com/jenkinsci/docker.git#000a9c34e417ee8142cbcfd6b17992c8cfa8caf6
+            checksum: 000a9c34e417ee8142cbcfd6b17992c8cfa8caf6
             path: ${source.dir}/docker-builds
             uid: 0
             gid: 0
@@ -273,7 +273,7 @@ environment:
   JENKINS_SLAVE_AGENT_PORT: "50000"
   JENKINS_UC: https://updates.jenkins.io
   JENKINS_UC_EXPERIMENTAL: https://updates.jenkins.io/experimental
-  JENKINS_VERSION: "2.564"
+  JENKINS_VERSION: "2.565"
   LANG: en_US.UTF-8
   LANGUAGE: en_US:en
   LC_ALL: en_US.UTF-8
