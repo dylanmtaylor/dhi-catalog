@@ -1,0 +1,82 @@
+# syntax=dhi.io/build:2-helm3
+
+name: Opencost Helm chart 2.x
+image: dhi.io/opencost-chart
+variant: helm
+tags:
+  - 2.5.19
+platforms:
+  - linux/amd64
+vars:
+  APPVERSION: 1.120.1
+  AWS_SIGV4_PROXY_IMAGE_REFERENCE: dhi/aws-sigv4-proxy:1.11.1-debian13@sha256:120b310d4fb232750c7c48fcb5efcc984ec16866e2f81b6cba8741cde670a682
+  CHART_COMMIT_SHA: 599bf619a2a76fec870225c03fec09c8d238a1c9
+  CURL_IMAGE_REFERENCE: dhi/curl:8.14.1-debian13@sha256:864f690dbadfa1eead17170e6061d0e189d1ea8da358f23a9016e80a9fc66dce
+  DHI_NAMESPACE: dhi
+  DHI_PREFIX: ""
+  DHI_REGISTRY: dhi.io
+  DHI_SKIP_CONTEXT_COPY: "true"
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  OPENCOST_IMAGE_REFERENCE: dhi/opencost:1.120.1-debian13@sha256:306a597f5505798463b800da92639b053a107c7d51bfd3bab8cdb529a38d13ec
+  OPENCOST_UI_IMAGE_REFERENCE: dhi/opencost-ui:1.120.1-debian13@sha256:47b94d95deebc51d2c3cf71fda38b2477d02140d65aa10e002079fb86ddef138
+  SEMVER_MAJOR_MINOR_VERSION: "2.5"
+  SEMVER_MAJOR_VERSION: "2"
+  SEMVER_VERSION: 2.5.19
+  VERSION: 2.5.19
+contents:
+  builds:
+    - name: opencost-chart
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+      work-dir: ${source.dir}/helm-charts/charts/opencost
+      contents:
+        files:
+          - url: git+https://github.com/opencost/opencost-helm-chart.git#opencost-2.5.19
+            checksum: 599bf619a2a76fec870225c03fec09c8d238a1c9
+            path: ${source.dir}/helm-charts
+            uid: 0
+            gid: 0
+      pipeline:
+        - name: prepare chart
+          uses: helm/rudder@v1
+          work-dir: ${source.dir}/helm-charts/charts/opencost
+          with:
+            chart:
+              appRef: opencost
+              description: Docker Hardened Images Helm chart for Opencost
+              images:
+                - name: opencost
+                  ref: dhi/opencost:1.120.1-debian13@sha256:306a597f5505798463b800da92639b053a107c7d51bfd3bab8cdb529a38d13ec
+                - name: opencost-ui
+                  ref: dhi/opencost-ui:1.120.1-debian13@sha256:47b94d95deebc51d2c3cf71fda38b2477d02140d65aa10e002079fb86ddef138
+                - name: aws-sigv4-proxy
+                  ref: dhi/aws-sigv4-proxy:1.11.1-debian13@sha256:120b310d4fb232750c7c48fcb5efcc984ec16866e2f81b6cba8741cde670a682
+                - name: curl
+                  ref: dhi/curl:8.14.1-debian13@sha256:864f690dbadfa1eead17170e6061d0e189d1ea8da358f23a9016e80a9fc66dce
+              name: opencost-chart
+              notes: ${source.dir}/config/NOTES.txt
+              sourceUrl: https://github.com/opencost/opencost
+            cmd: prepare
+            registry: dhi.io
+        - name: relocate chart
+          uses: helm/rudder@v1
+          with:
+            cmd: patch
+            patches:
+              from: ${source.dir}/config
+            registry: dhi.io
+        - name: lint
+          uses: helm/cmd@v1
+          with:
+            chart: .
+            cmd: lint .
+        - name: package
+          uses: helm/package@v1
+          with:
+            chart: .
+      paths:
+        - type: directory
+          path: ${source.dir}/config
+          uid: 0
+          gid: 0
+          mode: "0644"
+          source: chart/opencost/config
