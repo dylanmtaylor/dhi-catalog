@@ -14,7 +14,7 @@ vars:
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
-  HOMEPAGE_REFERENCE: dhi/homepage:1.13.1-debian13@sha256:61d7a312702f8843abadc45a731161112722673509ed0968f50dcd94b4dc5aac
+  HOMEPAGE_REFERENCE: dhi/homepage:1.13.1-debian13@sha256:6334045d011fb0f10c7427873d3fc2ea0bd81e74dff95997821358c6b833b6fb
   SEMVER_MAJOR_MINOR_VERSION: "1.0"
   SEMVER_MAJOR_VERSION: "1"
   SEMVER_VERSION: 1.0.0
@@ -40,7 +40,7 @@ contents:
               description: Docker Hardened Images Helm chart for Homepage
               images:
                 - name: homepage
-                  ref: dhi/homepage:1.13.1-debian13@sha256:61d7a312702f8843abadc45a731161112722673509ed0968f50dcd94b4dc5aac
+                  ref: dhi/homepage:1.13.1-debian13@sha256:6334045d011fb0f10c7427873d3fc2ea0bd81e74dff95997821358c6b833b6fb
               name: homepage-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/docker-hardened-images/helm-charts
