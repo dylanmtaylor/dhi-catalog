@@ -80,10 +80,20 @@ contents:
             BEATS_ROOT=/go/src/github.com/elastic/beats
             mkdir -p "${target.dir}/usr/share/filebeat/modules.d"
             mkdir -p "${target.dir}/usr/share/filebeat/module"
-            cp -r "$BEATS_ROOT"/filebeat/modules.d/* "${target.dir}/usr/share/filebeat/modules.d/"
-            cp -r "$BEATS_ROOT"/filebeat/module/* "${target.dir}/usr/share/filebeat/module/"
-            cp -r "$BEATS_ROOT"/x-pack/filebeat/modules.d/* "${target.dir}/usr/share/filebeat/modules.d/"
-            cp -r "$BEATS_ROOT"/x-pack/filebeat/module/* "${target.dir}/usr/share/filebeat/module/"
+
+            # Copy modules.d and module directories if they exist and are not empty
+            if [ -d "$BEATS_ROOT/filebeat/modules.d" ] && [ -n "$(ls -A "$BEATS_ROOT/filebeat/modules.d" 2> /dev/null)" ]; then
+              cp -r "$BEATS_ROOT"/filebeat/modules.d/* "${target.dir}/usr/share/filebeat/modules.d/"
+            fi
+            if [ -d "$BEATS_ROOT/filebeat/module" ] && [ -n "$(ls -A "$BEATS_ROOT/filebeat/module" 2> /dev/null)" ]; then
+              cp -r "$BEATS_ROOT"/filebeat/module/* "${target.dir}/usr/share/filebeat/module/"
+            fi
+            if [ -d "$BEATS_ROOT/x-pack/filebeat/modules.d" ] && [ -n "$(ls -A "$BEATS_ROOT/x-pack/filebeat/modules.d" 2> /dev/null)" ]; then
+              cp -r "$BEATS_ROOT"/x-pack/filebeat/modules.d/* "${target.dir}/usr/share/filebeat/modules.d/"
+            fi
+            if [ -d "$BEATS_ROOT/x-pack/filebeat/module" ] && [ -n "$(ls -A "$BEATS_ROOT/x-pack/filebeat/module" 2> /dev/null)" ]; then
+              cp -r "$BEATS_ROOT"/x-pack/filebeat/module/* "${target.dir}/usr/share/filebeat/module/"
+            fi
       outputs:
         - source: ${target.dir}/usr/local/bin/filebeat
           target: /usr/local/bin/filebeat
