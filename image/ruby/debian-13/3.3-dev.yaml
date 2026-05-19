@@ -15,10 +15,10 @@ dates:
   release: "2023-12-25"
   end-of-life: "2027-03-31"
 vars:
-  BINUTILS_DIGEST: sha256:5333b3178ad52e503d8c44eb5a4073a039842ebc3403f6b6c6658a11c0b200e7
+  BINUTILS_DIGEST: sha256:069179316afd8be7ba10ffb968dce13db5f4a349516553a98d77bfb85051f31d
   BINUTILS_VERSION: "2.46"
   ERB_COMMIT_SHA: 6a2e4a76d352127135359e3420d5f42b767a0600
-  EXPAT_DIGEST: sha256:25fdf661242f7dedae95752d9fb13c8d10481d23471903e8769b83aaa358f6f0
+  EXPAT_DIGEST: sha256:fadd9a04bbefababb203f4b4df9adcccded340c463ff39382ad3780863050f1e
   EXPAT_VERSION: 2.8.1
   GEM_HOME: /usr/local/bundle
   JSON_COMMIT_SHA: 54f8a878aebee090476a53c851c943128894be62
@@ -280,7 +280,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/pkg-binutils:2.46-debian13@sha256:5333b3178ad52e503d8c44eb5a4073a039842ebc3403f6b6c6658a11c0b200e7
+    - name: dhi.io/pkg-binutils:2.46-debian13@sha256:069179316afd8be7ba10ffb968dce13db5f4a349516553a98d77bfb85051f31d
       excludes:
         - etc/group
         - etc/os-release
@@ -338,7 +338,7 @@ contents:
         - var/lib/dpkg/status.d/libgcc-s1
       uid: 0
       gid: 0
-    - name: dhi.io/pkg-expat:2.8.1-debian13@sha256:25fdf661242f7dedae95752d9fb13c8d10481d23471903e8769b83aaa358f6f0
+    - name: dhi.io/pkg-expat:2.8.1-debian13@sha256:fadd9a04bbefababb203f4b4df9adcccded340c463ff39382ad3780863050f1e
       includes:
         - usr/**
         - var/lib/dpkg/status.d
