@@ -21,8 +21,8 @@ vars:
   PG_MAJOR_VERSION: "14"
   PG_VERSION: "14.23"
   PGDATA: /var/lib/postgresql/14/data
-  POSTGRES_BUILD_REFERENCE: dhi/postgres:14.23-debian13-dev@sha256:614ba0bf0cf40db9ce3ff4e51b6cf41ba14e2e9ca60c541c53d20c8c223c66e7
-  POSTGRES_RUNTIME_REFERENCE: dhi/postgres:14.23-debian13@sha256:f7dc1595cfe476de7c993e4a7bad476bdc95774d93715b3c6574c59d45446a4f
+  POSTGRES_BUILD_REFERENCE: dhi/postgres:14.23-debian13-dev@sha256:7577189a50a9ce4850e1c6e3e2fd9865aebe9038ec157bdcbd10a30599b5b939
+  POSTGRES_RUNTIME_REFERENCE: dhi/postgres:14.23-debian13@sha256:2c2a16a0f993887e128ea8bc0f243f0660ac44fd46e316f3da4d98f0c648473f
   SEMVER_MAJOR_MINOR_VERSION: "0.8"
   SEMVER_MAJOR_VERSION: "0"
   SEMVER_VERSION: 0.8.2
@@ -65,7 +65,7 @@ contents:
     - zlib1g
   builds:
     - name: pgvector
-      uses: dhi.io/postgres:14.23-debian13-dev@sha256:614ba0bf0cf40db9ce3ff4e51b6cf41ba14e2e9ca60c541c53d20c8c223c66e7
+      uses: dhi.io/postgres:14.23-debian13-dev@sha256:7577189a50a9ce4850e1c6e3e2fd9865aebe9038ec157bdcbd10a30599b5b939
       work-dir: ${source.dir}/pgvector
       contents:
         packages:
@@ -136,13 +136,13 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/postgres:14.23-debian13@sha256:f7dc1595cfe476de7c993e4a7bad476bdc95774d93715b3c6574c59d45446a4f
+    - name: dhi.io/postgres:14.23-debian13@sha256:2c2a16a0f993887e128ea8bc0f243f0660ac44fd46e316f3da4d98f0c648473f
       excludes:
         - etc/os-release
         - var/lib/dpkg/status
       uid: 0
       gid: 0
-    - name: dhi.io/postgres:14.23-debian13-dev@sha256:614ba0bf0cf40db9ce3ff4e51b6cf41ba14e2e9ca60c541c53d20c8c223c66e7
+    - name: dhi.io/postgres:14.23-debian13-dev@sha256:7577189a50a9ce4850e1c6e3e2fd9865aebe9038ec157bdcbd10a30599b5b939
       excludes:
         - etc/os-release
         - var/lib/dpkg/status
