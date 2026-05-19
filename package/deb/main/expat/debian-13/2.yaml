@@ -3,8 +3,8 @@
 image: dhi.io/pkg-expat
 variant: runtime
 tags:
-  - 2.7.1-2-dhi1
-  - 2.7.1-2-dhi1-debian13
+  - 2.7.1-2-dhi2
+  - 2.7.1-2-dhi2-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -20,9 +20,9 @@ vars:
   DEBIAN_ORIG_FILENAME: expat_2.7.1.orig.tar.gz
   DEBIAN_ORIG_URL: https://deb.debian.org/debian/pool/main/e/expat/expat_2.7.1.orig.tar.gz
   DEBIAN_VERSION: 2.7.1-2
-  DHI_REL: "1"
-  DHI_VERSION: 2.7.1-2+dhi1
-  TAG_VERSION: 2.7.1-2-dhi1
+  DHI_REL: "2"
+  DHI_VERSION: 2.7.1-2+dhi2
+  TAG_VERSION: 2.7.1-2-dhi2
   UPSTREAM_VERSION: 2.7.1
 contents:
   packages:
@@ -40,6 +40,8 @@ contents:
           - docbook2x
           - dpkg-dev
           - libtool
+          - quilt
+          - util-linux
         files:
           - url: https://deb.debian.org/debian/pool/main/e/expat/expat_2.7.1-2.dsc
             checksum: sha256:0f6068677eae5a40d223f47cc798210c8227022516d90569f657a793e5b2956f
@@ -62,12 +64,25 @@ contents:
           with:
             file: expat_2.7.1-2.dsc
             path: expat
+        - uses: dpkg/patch@v1
+          with:
+            apply: true
+            patches:
+              - ${source.dir}/patch/dhi-cve-2026-45186-attribute-collision-dos.patch
         - uses: dpkg/bump@v1
           with:
-            version: 2.7.1-2+dhi1
+            changelog:
+              - Apply upstream patch to fix CVE-2026-45186
+            version: 2.7.1-2+dhi2
         - uses: dpkg/build@v1
           with:
             args: -uc -us -d
+      paths:
+        - type: file
+          path: ${source.dir}/patch/dhi-cve-2026-45186-attribute-collision-dos.patch
+          uid: 0
+          gid: 0
+          source: package/deb/main/expat/patch/dhi-cve-2026-45186-attribute-collision-dos.patch
 os-release:
   name: Docker Hardened Images (Debian)
   id: debian
