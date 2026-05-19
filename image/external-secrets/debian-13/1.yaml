@@ -45,10 +45,11 @@ contents:
             gid: 0
       pipeline:
         - name: update go dependencies (1 only)
-          uses: go/bump@v1
+          uses: go/bump@v2
           with:
             deps:
               - github.com/Azure/go-ntlmssp@v0.1.1
+              - github.com/go-git/go-billy/v5@v5.9.0
               - github.com/go-git/go-git/v5@v5.19.0
               - github.com/go-jose/go-jose/v4@v4.1.4
               - go.opentelemetry.io/otel@v1.41.0
@@ -60,6 +61,7 @@ contents:
             patches:
               - ${source.dir}/patch/security-pr5884.patch
               - ${source.dir}/patch/remove-gethostbyname.patch
+              - ${source.dir}/patch/cve-2026-42875-ca-provider-namespace.patch
         - uses: go/hermetic@v1
         - name: build external-secrets
           uses: go/build@v1
@@ -86,6 +88,11 @@ contents:
           uid: 0
           gid: 0
           source: image/external-secrets/patch/remove-gethostbyname.patch
+        - type: file
+          path: ${source.dir}/patch/cve-2026-42875-ca-provider-namespace.patch
+          uid: 0
+          gid: 0
+          source: image/external-secrets/patch/cve-2026-42875-ca-provider-namespace.patch
       outputs:
         - source: ${target.dir}/usr/local/bin/external-secrets
           target: /usr/local/bin/external-secrets
