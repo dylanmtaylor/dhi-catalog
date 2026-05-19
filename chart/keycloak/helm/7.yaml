@@ -8,14 +8,14 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  BUSYBOX_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:a91d3f23f20f9ab231ebefa0acf1799dd7dbad424fa4dca099762790e900f4f7
+  BUSYBOX_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
   CHART_COMMIT_SHA: 15f09f31c8c4c23c4162d8d6e3b2b6f3669f7b43
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.20.2-debian13-dev@sha256:0e82c726efb7039ffa0875ffb88632189d0082a77f0ee94efa3a048992db3c71
-  KEYCLOAK_REFERENCE: dhi/keycloak:26.6.1-debian13@sha256:be10f179bd0a3c340c5208bbb1545ba16cc26645a28c91229f184af895a441a3
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  KEYCLOAK_REFERENCE: dhi/keycloak:26.6.1-debian13@sha256:3364f2fb335bdb2d32612c4448ba4a209ba7c9c9a98e244504b2f4ae797590b1
   SEMVER_MAJOR_MINOR_VERSION: "7.1"
   SEMVER_MAJOR_VERSION: "7"
   SEMVER_VERSION: 7.1.11
@@ -23,7 +23,7 @@ vars:
 contents:
   builds:
     - name: keycloak-chart
-      uses: dhi.io/helm:3.20.2-debian13-dev@sha256:0e82c726efb7039ffa0875ffb88632189d0082a77f0ee94efa3a048992db3c71
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
       contents:
         files:
           - url: git+https://github.com/codecentric/helm-charts.git#keycloakx-7.1.11
@@ -41,9 +41,9 @@ contents:
               description: Docker Hardened Images Helm chart for Keycloak
               images:
                 - name: keycloak
-                  ref: dhi/keycloak:26.6.1-debian13@sha256:be10f179bd0a3c340c5208bbb1545ba16cc26645a28c91229f184af895a441a3
+                  ref: dhi/keycloak:26.6.1-debian13@sha256:3364f2fb335bdb2d32612c4448ba4a209ba7c9c9a98e244504b2f4ae797590b1
                 - name: busybox
-                  ref: dhi/busybox:1.37.0-debian13@sha256:a91d3f23f20f9ab231ebefa0acf1799dd7dbad424fa4dca099762790e900f4f7
+                  ref: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
               name: keycloak-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/codecentric/helm-charts
