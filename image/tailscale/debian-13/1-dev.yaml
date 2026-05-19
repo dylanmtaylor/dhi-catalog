@@ -6,26 +6,30 @@ variant: dev
 tags:
   - 1-dev
   - 1.98-dev
-  - 1.98.2-dev
+  - 1.98.1-dev
   - 1-debian13-dev
   - 1.98-debian13-dev
-  - 1.98.2-debian13-dev
+  - 1.98.1-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 vars:
-  COMMIT_SHA: 34c530668cb05fa60b3d707a44b70460344789ef
-  GO_VERSION: 1.26.3
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
+  FLAVORED_SUFFIX: -dev
   SEMVER_MAJOR_MINOR_VERSION: "1.98"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.98.2
-  TS_VERSION: 1.98.2-t34c53066
-  VERSION: 1.98.2
+  SEMVER_VERSION: 1.98.1
+  SUFFIX: -dev
+  VERSION: 1.98.1-0
 contents:
+  repositories:
+    - deb [signed-by=/usr/share/keyrings/dhi-deb-main.gpg] http://dhi.io/deb/debian/main trixie main
+  keyring:
+    - https://dhi.io/keyring/dhi-deb-els-gpg.D46852F6925E9F71.key
   packages:
+    - '!base-files'
     - '!gawk'
     - '!libelogind0'
+    - '!mawk'
     - '!original-awk'
     - apt
     - base-files
@@ -43,60 +47,8 @@ contents:
     - mawk
     - perl-base
     - sed
+    - tailscale-dev=1.98.1-0
     - util-linux
-  builds:
-    - name: tailscale
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
-      work-dir: /go/src/tailscale.com
-      caches:
-        - path: /go/pkg/mod
-      contents:
-        files:
-          - url: git+https://github.com/tailscale/tailscale.git#v1.98.2
-            checksum: 34c530668cb05fa60b3d707a44b70460344789ef
-            path: /go/src/tailscale.com
-            spdx:
-              name: tailscale
-              version: 1.98.2
-              packages:
-                - name: tailscale
-                  purl: pkg:dhi/tailscale@1.98.2
-                  license: BSD-3-Clause
-            uid: 0
-            gid: 0
-      pipeline:
-        - name: update go dependencies
-          uses: go/bump@v1
-          with:
-            deps:
-              - golang.org/x/image@v0.39.0
-              - golang.org/x/net@v0.53.0
-            download: true
-        - name: build
-          runs: |
-            set -eux -o pipefail
-
-            GOLDFLAGS='-X tailscale.com/version.Version=1.98.2
-                       -X tailscale.com/version.shortStamp=1.98.2
-                       -X tailscale.com/version.longStamp=1.98.2-t34c53066
-                       -X tailscale.com/version.gitCommitStamp=34c530668cb05fa60b3d707a44b70460344789ef'
-
-            mkdir -p '${target.dir}/usr/local/bin'
-            for cmd in tailscale tailscaled containerboot; do
-              CGO_ENABLED=0 go build \
-                -tags='ts_kube,ts_package_container' \
-                -ldflags="$GOLDFLAGS" \
-                -o "${target.dir}/usr/local/bin/${cmd}" "./cmd/${cmd}"
-            done
-      outputs:
-        - source: ${target.dir}/usr/local/bin
-          target: /usr/local/bin
-          uid: 0
-          gid: 0
-        - source: /opt/docker/sbom/tailscale
-          target: /opt/docker/sbom/tailscale
-          uid: 0
-          gid: 0
 accounts:
   root: true
   run-as: root
