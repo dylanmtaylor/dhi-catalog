@@ -6,22 +6,22 @@ variant: dev
 tags:
   - 1-dev
   - 1.32-dev
-  - 1.32.0-dev
+  - 1.32.1-dev
   - 1-debian13-dev
   - 1.32-debian13-dev
-  - 1.32.0-debian13-dev
+  - 1.32.1-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
   release: "2026-04-29"
 vars:
-  COMMIT_SHA: d3c1224a9b875083a9a0237aac0e68671960bedb
+  COMMIT_SHA: f9dc352474344e772ba01fdeee240bf9774ca056
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   SEMVER_MAJOR_MINOR_VERSION: "1.32"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.32.0
-  VERSION: 1.32.0
+  SEMVER_VERSION: 1.32.1
+  VERSION: 1.32.1
 contents:
   packages:
     - '!gawk'
@@ -52,15 +52,15 @@ contents:
           - ca-certificates
           - git
         files:
-          - url: git+https://github.com/k8ssandra/k8ssandra-operator.git#v1.32.0
-            checksum: d3c1224a9b875083a9a0237aac0e68671960bedb
+          - url: git+https://github.com/k8ssandra/k8ssandra-operator.git#v1.32.1
+            checksum: f9dc352474344e772ba01fdeee240bf9774ca056
             path: /go/src/github.com/k8ssandra/k8ssandra-operator
             spdx:
               name: k8ssandra-operator
-              version: 1.32.0
+              version: 1.32.1
               packages:
                 - name: k8ssandra-operator
-                  purl: pkg:golang/github.com/k8ssandra/k8ssandra-operator@1.32.0
+                  purl: pkg:golang/github.com/k8ssandra/k8ssandra-operator@1.32.1
                   license: Apache-2.0
             uid: 0
             gid: 0
