@@ -19,7 +19,7 @@ vars:
   NODE_EXPORTER_CHART_REFERENCE: dhi/node-exporter-chart:4.55.0@sha256:111e173b4b257c13b0e50b56c1c18c4b53e07947dc324360fd3b8e6963b31b04
   PROMETHEUS_CONFIG_RELOADER_REFERENCE: dhi/prometheus-config-reloader:0.91.0-debian13@sha256:a5700d1eb5176386ba6129e0766b0e389b4b0e7a80c131454152571c4f511748
   PROMETHEUS_REFERENCE: dhi/prometheus:3.11.3-debian13@sha256:2daa8de58d534cfb21269721d6823f7f52c0ed2d7b2b951a3a8588d0ead91e91
-  PUSHGATEWAY_CHART_REFERENCE: dhi/pushgateway-chart:3.6.0@sha256:704f8abbb1dc56ecaa0655cedde4f059b030dde210d2edc338ab2f5511f74332
+  PUSHGATEWAY_CHART_REFERENCE: dhi/pushgateway-chart:3.6.0@sha256:c86997c1f2387f726e6095a630e8e029bf6ca94df9ce2064c8ff0367a1a860dd
   SEMVER_MAJOR_MINOR_VERSION: "28.16"
   SEMVER_MAJOR_VERSION: "28"
   SEMVER_VERSION: 28.16.0
@@ -58,7 +58,7 @@ contents:
                 - alias: prometheus-pushgateway
                   condition: prometheus-pushgateway.enabled
                   name: prometheus-pushgateway
-                  ref: dhi/pushgateway-chart:3.6.0@sha256:704f8abbb1dc56ecaa0655cedde4f059b030dde210d2edc338ab2f5511f74332
+                  ref: dhi/pushgateway-chart:3.6.0@sha256:c86997c1f2387f726e6095a630e8e029bf6ca94df9ce2064c8ff0367a1a860dd
               description: Docker Hardened Images Helm chart for Prometheus
               images:
                 - name: prometheus
