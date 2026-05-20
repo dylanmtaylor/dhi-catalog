@@ -15,7 +15,7 @@ vars:
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:462393863790e8d4b174f63f0da50798da095a059d4fab7692ae4fb7a58e99d3
   OPENTELEMETRY_AUTOINSTRUMENTATION_GO_REFERENCE: dhi/opentelemetry-autoinstrumentation-go:0.24.0-debian13@sha256:c10f12ab888a7e52601f67d9ceb9ff9ff7ee857a2db05c7492fcd35349f516d7
   OPENTELEMETRY_COLLECTOR_REFERENCE: dhi/opentelemetry-collector:0.151.0-debian13@sha256:54e263fa354146a2b2c54e6a800f6c84232c14942d0939d8565637a5e43ee335
   OPENTELEMETRY_OPERATOR_REFERENCE: dhi/opentelemetry-operator:0.151.0-debian13@sha256:c9ddcf5b53f103a66637b3fb8c7a92d5385bbfbeb46fb0f783fc219b889d9ca7
@@ -26,7 +26,7 @@ vars:
 contents:
   builds:
     - name: opentelemetry-operator
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:462393863790e8d4b174f63f0da50798da095a059d4fab7692ae4fb7a58e99d3
       work-dir: ${source.dir}/helm-charts/charts/opentelemetry-operator
       contents:
         files:
