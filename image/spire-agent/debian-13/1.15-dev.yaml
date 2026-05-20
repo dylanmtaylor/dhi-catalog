@@ -1,45 +1,63 @@
 # syntax=dhi.io/build:2-debian13
 
-name: Spiffe Spire Agent 1.14.x
+name: Spiffe Spire Agent 1.15.x (dev)
 image: dhi.io/spire-agent
-variant: runtime
+variant: dev
 tags:
-  - "1.14"
-  - 1.14.6
-  - 1.14-debian13
-  - 1.14.6-debian13
+  - 1-dev
+  - 1.15-dev
+  - 1.15.0-dev
+  - 1-debian13-dev
+  - 1.15-debian13-dev
+  - 1.15.0-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
-  release: "2025-12-11"
+  release: "2026-05-19"
 vars:
   BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
   BASE_TAG: 20250419-debian13
-  COMMIT_SHA: d6aff0ebe3d673a1f7c3f9ea56a8e7f8333f165d
+  COMMIT_SHA: b7db9650aa98598ee7af21d7a75fbab8f6b70d42
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
-  SEMVER_MAJOR_MINOR_VERSION: "1.14"
+  SEMVER_MAJOR_MINOR_VERSION: "1.15"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.14.6
-  VERSION: 1.14.6
+  SEMVER_VERSION: 1.15.0
+  VERSION: 1.15.0
 contents:
   packages:
     - '!base-files'
+    - '!gawk'
+    - '!libelogind0'
+    - '!original-awk'
+    - apt
+    - bash
+    - ca-certificates
+    - coreutils
+    - diffutils
+    - dpkg
+    - findutils
+    - grep
+    - libc-bin
+    - mawk
+    - perl-base
+    - sed
+    - util-linux
   builds:
     - name: spire-agent
       uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/github.com/spiffe/spire
       contents:
         files:
-          - url: git+https://github.com/spiffe/spire.git#v1.14.6
-            checksum: d6aff0ebe3d673a1f7c3f9ea56a8e7f8333f165d
+          - url: git+https://github.com/spiffe/spire.git#v1.15.0
+            checksum: b7db9650aa98598ee7af21d7a75fbab8f6b70d42
             path: /go/src/github.com/spiffe/spire
             spdx:
               name: spire-agent
-              version: 1.14.6
+              version: 1.15.0
               packages:
                 - name: spire-agent
-                  purl: pkg:golang/github.com/spiffe/spire@1.14.6
+                  purl: pkg:golang/github.com/spiffe/spire@1.15.0
                   license: Apache-2.0
             uid: 0
             gid: 0
@@ -62,8 +80,8 @@ contents:
           uses: go/build@v1
           with:
             ldflags:
-              - -X github.com/spiffe/spire/pkg/common/version.gittag=1.14.6
-              - -X github.com/spiffe/spire/pkg/common/version.githash=d6aff0ebe3d673a1f7c3f9ea56a8e7f8333f165d
+              - -X github.com/spiffe/spire/pkg/common/version.gittag=1.15.0
+              - -X github.com/spiffe/spire/pkg/common/version.githash=b7db9650aa98598ee7af21d7a75fbab8f6b70d42
             output: ${target.dir}/usr/local/bin/spire-agent
             packages: ./cmd/spire-agent
       outputs:
@@ -96,10 +114,14 @@ contents:
       uid: 0
       gid: 0
 accounts:
-  run-as: nonroot
+  root: true
+  run-as: root
   users:
     - name: nonroot
       uid: 65532
+      gid: 65532
+    - name: _apt
+      uid: 42
       gid: 65532
   groups:
     - name: nonroot
@@ -115,6 +137,8 @@ os-release:
   home-url: https://docker.com/products/hardened-images/
   bug-report-url: https://docker.com/support/
 work-dir: /opt/spire
+environment:
+  DEBIAN_FRONTEND: noninteractive
 paths:
   - type: directory
     path: /opt/spire/bin
