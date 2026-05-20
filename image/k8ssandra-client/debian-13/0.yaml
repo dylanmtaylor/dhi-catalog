@@ -23,7 +23,7 @@ vars:
   SEMVER_MAJOR_VERSION: "0"
   SEMVER_VERSION: 0.8.12
   VERSION: 0.8.12
-  YQ_REFERENCE: dhi/pkg-go-yq:4.53.2-debian13@sha256:2298e6ae895fadd3dabc2ff821b9f56049cc004ba8005a79a28b4938e6a80d66
+  YQ_REFERENCE: dhi/pkg-go-yq:4.53.2-debian13@sha256:962e941e35c34df32ecef10c5fb7ce2f0dda58f2b14948f60fd282b419572eef
   YQ_VERSION: 4.53.2
 contents:
   packages:
@@ -91,7 +91,7 @@ contents:
         - usr/local/bin/kubectl
       uid: 0
       gid: 0
-    - name: dhi.io/pkg-go-yq:4.53.2-debian13@sha256:2298e6ae895fadd3dabc2ff821b9f56049cc004ba8005a79a28b4938e6a80d66
+    - name: dhi.io/pkg-go-yq:4.53.2-debian13@sha256:962e941e35c34df32ecef10c5fb7ce2f0dda58f2b14948f60fd282b419572eef
       includes:
         - opt/docker/sbom/go-yq
         - usr/local/bin/yq
