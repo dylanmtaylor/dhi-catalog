@@ -8,14 +8,14 @@ tags:
 platforms:
   - linux/amd64
 vars:
-  ARGO_ROLLOUTS_REFERENCE: dhi/argo-rollouts:1.9.0-debian13@sha256:31751fe6a7853b09cdf5422bf4cb460e3f544256b8adeeb6915be20e5e68f365
+  ARGO_ROLLOUTS_REFERENCE: dhi/argo-rollouts:1.9.0-debian13@sha256:75da3d414df455fe55f8efea9ad769b9b56245f102fc66141ab39fa138835244
   CHART_COMMIT_SHA: 0071700ffc396050b4c17b4415610fd9ebb93a3c
   DHI_NAMESPACE: dhi
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
-  KUBECTL_ARGO_ROLLOUTS_REFERENCE: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:61950ac2d83b6cf687d7a3e55069882a1faf0cd0da096d92428e56d85411a11e
+  KUBECTL_ARGO_ROLLOUTS_REFERENCE: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:2742e549159fc25b2c7eb191c848b0dea762f4120390e88feb1ee4c4e2bf6f5c
   SEMVER_MAJOR_MINOR_VERSION: "2.40"
   SEMVER_MAJOR_VERSION: "2"
   SEMVER_VERSION: 2.40.9
@@ -49,9 +49,9 @@ contents:
               description: Docker Hardened Images Helm chart for Argo Rollouts
               images:
                 - name: argo-rollouts
-                  ref: dhi/argo-rollouts:1.9.0-debian13@sha256:31751fe6a7853b09cdf5422bf4cb460e3f544256b8adeeb6915be20e5e68f365
+                  ref: dhi/argo-rollouts:1.9.0-debian13@sha256:75da3d414df455fe55f8efea9ad769b9b56245f102fc66141ab39fa138835244
                 - name: kubectl-argo-rollouts
-                  ref: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:61950ac2d83b6cf687d7a3e55069882a1faf0cd0da096d92428e56d85411a11e
+                  ref: dhi/kubectl-argo-rollouts:1.9.0-debian13@sha256:2742e549159fc25b2c7eb191c848b0dea762f4120390e88feb1ee4c4e2bf6f5c
               name: argo-rollouts-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/argoproj/argo-helm
