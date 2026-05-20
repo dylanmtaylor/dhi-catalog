@@ -15,7 +15,7 @@ platforms:
   - linux/arm64
 vars:
   COMMIT_SHA: 586a286e47fffc07f16533fba4e66f6a5a44b689
-  NODE_BUILD_REFERENCE: dhi/node:22.22.3-debian13-dev@sha256:e224484cc663eace659e7cd0d043769ee83ef14c2e7916fc9d32987e9df5b208
+  NODE_BUILD_REFERENCE: dhi/node:22.22.3-debian13-dev@sha256:03424ae30c83a43cd089a64c74d6ba3bda8c83543f9c910864fef0cd326a74e8
   NODE_BUILD_VERSION: 22.22.3
   NODE_REFERENCE: dhi/node:22.22.3-debian13@sha256:73c6d124d1e077bda1b6cfb3f49daa9bdfd44833c06a85bfbd24a6d2f4dc5e33
   NODE_VERSION: 22.22.3
@@ -51,7 +51,7 @@ contents:
     - util-linux
   builds:
     - name: grist-node
-      uses: dhi.io/node:22.22.3-debian13-dev@sha256:e224484cc663eace659e7cd0d043769ee83ef14c2e7916fc9d32987e9df5b208
+      uses: dhi.io/node:22.22.3-debian13-dev@sha256:03424ae30c83a43cd089a64c74d6ba3bda8c83543f9c910864fef0cd326a74e8
       environment:
         PATH: /opt/python/bin:/usr/local/bin:/usr/bin:/bin
       contents:
