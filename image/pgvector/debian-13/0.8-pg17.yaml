@@ -21,8 +21,8 @@ vars:
   PG_MAJOR_VERSION: "17"
   PG_VERSION: "17.10"
   PGDATA: /var/lib/postgresql/17/data
-  POSTGRES_BUILD_REFERENCE: dhi/postgres:17.10-debian13-dev@sha256:77cc7ed61f229b7f9926609f48560a9fa77b742ca67076ff21ff4d93ee8c0874
-  POSTGRES_RUNTIME_REFERENCE: dhi/postgres:17.10-debian13@sha256:75f3ac05910bbd9b16aa1e0583f4bd032f248a28b1a17f8ecdef8fde0552fe86
+  POSTGRES_BUILD_REFERENCE: dhi/postgres:17.10-debian13-dev@sha256:4addaff70d0c191f8846ae7e0347856150a71d13c47cd4de246d83a23878a42b
+  POSTGRES_RUNTIME_REFERENCE: dhi/postgres:17.10-debian13@sha256:d77ae24ee4a8b3aa2e3f89d1e28c633bad37d9ef02f6dc5ab1d487d994f578d8
   SEMVER_MAJOR_MINOR_VERSION: "0.8"
   SEMVER_MAJOR_VERSION: "0"
   SEMVER_VERSION: 0.8.2
@@ -54,7 +54,7 @@ contents:
     - zlib1g
   builds:
     - name: pgvector
-      uses: dhi.io/postgres:17.10-debian13-dev@sha256:77cc7ed61f229b7f9926609f48560a9fa77b742ca67076ff21ff4d93ee8c0874
+      uses: dhi.io/postgres:17.10-debian13-dev@sha256:4addaff70d0c191f8846ae7e0347856150a71d13c47cd4de246d83a23878a42b
       work-dir: ${source.dir}/pgvector
       contents:
         packages:
@@ -125,7 +125,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/postgres:17.10-debian13@sha256:75f3ac05910bbd9b16aa1e0583f4bd032f248a28b1a17f8ecdef8fde0552fe86
+    - name: dhi.io/postgres:17.10-debian13@sha256:d77ae24ee4a8b3aa2e3f89d1e28c633bad37d9ef02f6dc5ab1d487d994f578d8
       excludes:
         - etc/os-release
         - var/lib/dpkg/status
