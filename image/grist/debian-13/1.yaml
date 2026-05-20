@@ -20,9 +20,9 @@ vars:
   NODE_REFERENCE: dhi/node:22.22.3-debian13@sha256:73c6d124d1e077bda1b6cfb3f49daa9bdfd44833c06a85bfbd24a6d2f4dc5e33
   NODE_VERSION: 22.22.3
   PYTHON_BUILD_MAJOR_MINOR: "3.13"
-  PYTHON_BUILD_REFERENCE: dhi/python:3.13.13-debian13-dev@sha256:19e0e6b0a08de7e47295401cb9273d2020f724bb7de6b67ba16576a44b2fa3b0
+  PYTHON_BUILD_REFERENCE: dhi/python:3.13.13-debian13-dev@sha256:09682ab25f895adc2ffa36f6ddc2543ccb20edce5dbde91b5e8edd1476335325
   PYTHON_BUILD_VERSION: 3.13.13
-  PYTHON_REFERENCE: dhi/python:3.13.13-debian13@sha256:ce35145dcd0016ab6f17a1eade4e57d37850d05a1cfcee6190762a496567b440
+  PYTHON_REFERENCE: dhi/python:3.13.13-debian13@sha256:a87c4bc7bbf75da7d5bb1816f2bdf7640c17eeb42d3ba84c5201827977da8de4
   PYTHON_VERSION: 3.13.13
   SEMVER_MAJOR_MINOR_VERSION: "1.7"
   SEMVER_MAJOR_VERSION: "1"
@@ -63,7 +63,7 @@ contents:
             uid: 0
             gid: 0
         artifacts:
-          - name: dhi.io/python:3.13.13-debian13-dev@sha256:19e0e6b0a08de7e47295401cb9273d2020f724bb7de6b67ba16576a44b2fa3b0
+          - name: dhi.io/python:3.13.13-debian13-dev@sha256:09682ab25f895adc2ffa36f6ddc2543ccb20edce5dbde91b5e8edd1476335325
             includes:
               - opt/**
             uid: 0
@@ -127,7 +127,7 @@ contents:
           uid: 0
           gid: 0
     - name: grist-python
-      uses: dhi.io/python:3.13.13-debian13-dev@sha256:19e0e6b0a08de7e47295401cb9273d2020f724bb7de6b67ba16576a44b2fa3b0
+      uses: dhi.io/python:3.13.13-debian13-dev@sha256:09682ab25f895adc2ffa36f6ddc2543ccb20edce5dbde91b5e8edd1476335325
       contents:
         packages:
           - coreutils
@@ -176,7 +176,7 @@ contents:
         - usr/local/bin/**
       uid: 0
       gid: 0
-    - name: dhi.io/python:3.13.13-debian13@sha256:ce35145dcd0016ab6f17a1eade4e57d37850d05a1cfcee6190762a496567b440
+    - name: dhi.io/python:3.13.13-debian13@sha256:a87c4bc7bbf75da7d5bb1816f2bdf7640c17eeb42d3ba84c5201827977da8de4
       includes:
         - opt/**
         - usr/**
