@@ -18,7 +18,7 @@ vars:
   BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
   BASE_TAG: 20250419-debian13
   COMMIT_SHA: 1f328c5e9dd683d0c5e69f3d7d58f8371278dec2
-  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:972b3b41ae70170229bd24c019dd60465130be297739a9bb64d834c21ac1a27b
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   SEMVER_MAJOR_MINOR_VERSION: "1.34"
   SEMVER_MAJOR_VERSION: "1"
   SEMVER_VERSION: 1.34.8
@@ -44,7 +44,7 @@ contents:
     - util-linux
   builds:
     - name: kube-proxy
-      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:972b3b41ae70170229bd24c019dd60465130be297739a9bb64d834c21ac1a27b
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
       work-dir: /go/src/k8s.io/kubernetes
       caches:
         - path: /go/pkg/mod
@@ -82,6 +82,7 @@ contents:
             ./hack/pin-dependency.sh golang.org/x/crypto v0.45.0
             ./hack/pin-dependency.sh github.com/opencontainers/selinux v1.13.0
             ./hack/pin-dependency.sh go.opentelemetry.io/otel/sdk v1.43.0
+            ./hack/pin-dependency.sh golang.org/x/net v0.53.0
             ./hack/update-vendor.sh
         - name: build
           uses: go/build@v1
