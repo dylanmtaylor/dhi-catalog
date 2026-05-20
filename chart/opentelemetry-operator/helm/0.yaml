@@ -1,0 +1,81 @@
+# syntax=dhi.io/build:2-helm3
+
+name: OpenTelemetry Operator Helm chart 0.x
+image: dhi.io/opentelemetry-operator-chart
+variant: helm
+tags:
+  - 0.113.1
+platforms:
+  - linux/amd64
+vars:
+  APPVERSION: 0.151.0
+  BUSYBOX_REFERENCE: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
+  CHART_COMMIT_SHA: b7186ac856749873c6ae7f90c439250f5e300ed1
+  DHI_NAMESPACE: dhi
+  DHI_PREFIX: ""
+  DHI_REGISTRY: dhi.io
+  DHI_SKIP_CONTEXT_COPY: "true"
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  OPENTELEMETRY_AUTOINSTRUMENTATION_GO_REFERENCE: dhi/opentelemetry-autoinstrumentation-go:0.24.0-debian13@sha256:c10f12ab888a7e52601f67d9ceb9ff9ff7ee857a2db05c7492fcd35349f516d7
+  OPENTELEMETRY_COLLECTOR_REFERENCE: dhi/opentelemetry-collector:0.151.0-debian13@sha256:54e263fa354146a2b2c54e6a800f6c84232c14942d0939d8565637a5e43ee335
+  OPENTELEMETRY_OPERATOR_REFERENCE: dhi/opentelemetry-operator:0.151.0-debian13@sha256:c9ddcf5b53f103a66637b3fb8c7a92d5385bbfbeb46fb0f783fc219b889d9ca7
+  SEMVER_MAJOR_MINOR_VERSION: "0.113"
+  SEMVER_MAJOR_VERSION: "0"
+  SEMVER_VERSION: 0.113.1
+  VERSION: 0.113.1
+contents:
+  builds:
+    - name: opentelemetry-operator
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+      work-dir: ${source.dir}/helm-charts/charts/opentelemetry-operator
+      contents:
+        files:
+          - url: git+https://github.com/open-telemetry/opentelemetry-helm-charts.git#opentelemetry-operator-0.113.1
+            checksum: b7186ac856749873c6ae7f90c439250f5e300ed1
+            path: ${source.dir}/helm-charts
+            uid: 0
+            gid: 0
+      pipeline:
+        - name: prepare chart
+          uses: helm/rudder@v1
+          with:
+            chart:
+              appRef: opentelemetry-operator
+              description: Docker Hardened Images Helm chart for OpenTelemetry Operator
+              images:
+                - name: opentelemetry-operator
+                  ref: dhi/opentelemetry-operator:0.151.0-debian13@sha256:c9ddcf5b53f103a66637b3fb8c7a92d5385bbfbeb46fb0f783fc219b889d9ca7
+                - name: opentelemetry-collector
+                  ref: dhi/opentelemetry-collector:0.151.0-debian13@sha256:54e263fa354146a2b2c54e6a800f6c84232c14942d0939d8565637a5e43ee335
+                - name: busybox
+                  ref: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
+                - name: opentelemetry-autoinstrumentation-go
+                  ref: dhi/opentelemetry-autoinstrumentation-go:0.24.0-debian13@sha256:c10f12ab888a7e52601f67d9ceb9ff9ff7ee857a2db05c7492fcd35349f516d7
+              name: opentelemetry-operator-chart
+              notes: ${source.dir}/config/NOTES.txt
+              sourceUrl: https://github.com/open-telemetry/opentelemetry-helm-charts
+            cmd: prepare
+            registry: dhi.io
+        - name: relocate chart
+          uses: helm/rudder@v1
+          with:
+            cmd: patch
+            patches:
+              from: ${source.dir}/config
+            registry: dhi.io
+        - name: lint
+          uses: helm/cmd@v1
+          with:
+            chart: .
+            cmd: lint .
+        - name: package
+          uses: helm/package@v1
+          with:
+            chart: .
+      paths:
+        - type: directory
+          path: ${source.dir}/config
+          uid: 0
+          gid: 0
+          mode: "0644"
+          source: chart/opentelemetry-operator/config
