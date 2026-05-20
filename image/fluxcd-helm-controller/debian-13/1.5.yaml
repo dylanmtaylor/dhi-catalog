@@ -6,10 +6,10 @@ variant: runtime
 tags:
   - "1"
   - "1.5"
-  - 1.5.4
+  - 1.5.5
   - 1-debian13
   - 1.5-debian13
-  - 1.5.4-debian13
+  - 1.5.5-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -18,12 +18,12 @@ dates:
 vars:
   BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
   BASE_TAG: 20250419-debian13
-  COMMIT_SHA: e8ee8f10cba72307705ae4cc8e8a8a017c7b3349
+  COMMIT_SHA: e99b6c7f141db0eb134214b8f8c873943076ace5
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   SEMVER_MAJOR_MINOR_VERSION: "1.5"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.5.4
-  VERSION: 1.5.4
+  SEMVER_VERSION: 1.5.5
+  VERSION: 1.5.5
 contents:
   packages:
     - '!base-files'
@@ -35,15 +35,15 @@ contents:
         - path: /go/pkg/mod
       contents:
         files:
-          - url: git+https://github.com/fluxcd/helm-controller#v1.5.4
-            checksum: e8ee8f10cba72307705ae4cc8e8a8a017c7b3349
+          - url: git+https://github.com/fluxcd/helm-controller#v1.5.5
+            checksum: e99b6c7f141db0eb134214b8f8c873943076ace5
             path: /go/src/github.com/fluxcd/helm-controller
             spdx:
               name: fluxcd-helm-controller
-              version: 1.5.4
+              version: 1.5.5
               packages:
                 - name: fluxcd-helm-controller
-                  purl: pkg:golang/github.com/fluxcd/helm-controller@1.5.4
+                  purl: pkg:golang/github.com/fluxcd/helm-controller@1.5.5
                   license: Apache-2.0
             uid: 0
             gid: 0
@@ -51,9 +51,7 @@ contents:
         - name: patch (1.5 only)
           uses: go/bump@v2
           with:
-            deps:
-              - go.opentelemetry.io/otel@v1.41.0
-              - google.golang.org/grpc@v1.79.3
+            deps: []
             download: true
         - name: test
           runs: |
