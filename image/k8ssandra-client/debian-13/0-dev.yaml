@@ -6,23 +6,23 @@ variant: dev
 tags:
   - 0-dev
   - 0.8-dev
-  - 0.8.11-dev
+  - 0.8.12-dev
   - 0-debian13-dev
   - 0.8-debian13-dev
-  - 0.8.11-debian13-dev
+  - 0.8.12-debian13-dev
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
   release: "2025-06-04"
 vars:
-  COMMIT_SHA: 0ed7007d03bb3c58de7afd994274f4cadafc15a3
+  COMMIT_SHA: 42083e2d5d30022ebbcde1a733b19b5799c17239
   GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
   KUBECTL_REFERENCE: dhi/kubectl:1.35.5-debian13@sha256:b45ef2bf135ceb84156067843fefb8b06db1974e2a5304e994149b8c812c9685
   SEMVER_MAJOR_MINOR_VERSION: "0.8"
   SEMVER_MAJOR_VERSION: "0"
-  SEMVER_VERSION: 0.8.11
-  VERSION: 0.8.11
+  SEMVER_VERSION: 0.8.12
+  VERSION: 0.8.12
   YQ_REFERENCE: dhi/pkg-go-yq:4.53.2-debian13@sha256:2298e6ae895fadd3dabc2ff821b9f56049cc004ba8005a79a28b4938e6a80d66
   YQ_VERSION: 4.53.2
 contents:
@@ -55,15 +55,15 @@ contents:
           - ca-certificates
           - git
         files:
-          - url: git+https://github.com/k8ssandra/k8ssandra-client.git#v0.8.11
-            checksum: 0ed7007d03bb3c58de7afd994274f4cadafc15a3
+          - url: git+https://github.com/k8ssandra/k8ssandra-client.git#v0.8.12
+            checksum: 42083e2d5d30022ebbcde1a733b19b5799c17239
             path: /go/src/github.com/k8ssandra/k8ssandra-client
             spdx:
               name: k8ssandra-client
-              version: 0.8.11
+              version: 0.8.12
               packages:
                 - name: k8ssandra-client
-                  purl: pkg:golang/github.com/k8ssandra/k8ssandra-client@0.8.11
+                  purl: pkg:golang/github.com/k8ssandra/k8ssandra-client@0.8.12
                   license: Apache-2.0
             uid: 0
             gid: 0
