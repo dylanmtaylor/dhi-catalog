@@ -20,8 +20,8 @@ vars:
   BASE_TAG: 20250419-debian13
   COMMIT_SHA: 6437c3da17691bbe19b2cfd575f6ec4fc2690a5e
   JUPYTERHUB_VERSION: 5.4.6
-  PYTHON_BUILD_REFERENCE: dhi/python:3.14.5-debian13-dev@sha256:6fb2fbaf1cbfedeac9b035bdc5538b237385164803254c8d47d784fc7395fe94
-  PYTHON_REFERENCE: dhi/python:3.14.5-debian13@sha256:06affe7f9b2dbca52f8ccdaeb2aef7d0e9096f52121d25a9a97d186fdbbd0827
+  PYTHON_BUILD_REFERENCE: dhi/python:3.14.5-debian13-dev@sha256:98f54e1d2ba526f945659f512f21e94c76bc750c0b7935cb75995e22939beb86
+  PYTHON_REFERENCE: dhi/python:3.14.5-debian13@sha256:4b669716481a34691219b9148cd81b27801111339a37fb0ebb2108149d4b99ca
   SEMVER_MAJOR_MINOR_VERSION: "4.3"
   SEMVER_MAJOR_VERSION: "4"
   SEMVER_VERSION: 4.3.5
@@ -38,7 +38,7 @@ contents:
     - tzdata
   builds:
     - name: jupyterhub-k8s-hub
-      uses: dhi.io/python:3.14.5-debian13-dev@sha256:6fb2fbaf1cbfedeac9b035bdc5538b237385164803254c8d47d784fc7395fe94
+      uses: dhi.io/python:3.14.5-debian13-dev@sha256:98f54e1d2ba526f945659f512f21e94c76bc750c0b7935cb75995e22939beb86
       work-dir: ${source.dir}/zero-to-jupyterhub-k8s/images/hub
       environment:
         PATH: /opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -128,7 +128,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/python:3.14.5-debian13@sha256:06affe7f9b2dbca52f8ccdaeb2aef7d0e9096f52121d25a9a97d186fdbbd0827
+    - name: dhi.io/python:3.14.5-debian13@sha256:4b669716481a34691219b9148cd81b27801111339a37fb0ebb2108149d4b99ca
       includes:
         - opt/**
         - usr/**
