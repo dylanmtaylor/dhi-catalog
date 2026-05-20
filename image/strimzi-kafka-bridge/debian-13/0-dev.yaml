@@ -15,7 +15,7 @@ platforms:
   - linux/arm64
 vars:
   COMMIT_SHA: fc96ea42b24459837f5aebc0ef5dca559a6cee49
-  JAVA_REFERENCE: dhi/eclipse-temurin:17.0.19.10-debian13@sha256:1c392e32c2e2b4f200e9a9b1db8dcea7f6329619bd448b98a8e37bcee56fef1c
+  JAVA_REFERENCE: dhi/eclipse-temurin:17.0.19.10-debian13@sha256:c01a48528dd90d1f6de69ad5f8c13a8abfc4ecd181b30b0528695d124eed29c4
   JAVA_VERSION: 17.0.19.10
   MAVEN_REFERENCE: dhi/maven:3.9.16-jdk17-debian13-dev@sha256:2b4bfd8230f4bb2038c8ab818e5f24755b3db78f5e0d61cf17b5238b54727261
   MAVEN_VERSION: 3.9.16
@@ -163,7 +163,7 @@ contents:
           uid: 0
           gid: 0
   artifacts:
-    - name: dhi.io/eclipse-temurin:17.0.19.10-debian13@sha256:1c392e32c2e2b4f200e9a9b1db8dcea7f6329619bd448b98a8e37bcee56fef1c
+    - name: dhi.io/eclipse-temurin:17.0.19.10-debian13@sha256:c01a48528dd90d1f6de69ad5f8c13a8abfc4ecd181b30b0528695d124eed29c4
       includes:
         - opt/**
         - usr/local/bin
