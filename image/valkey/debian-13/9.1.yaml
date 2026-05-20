@@ -1,27 +1,27 @@
 # syntax=dhi.io/build:2-debian13
 
-name: Valkey 9.0.x
+name: Valkey 9.1.x
 image: dhi.io/valkey
 variant: runtime
 tags:
   - "9"
-  - "9.0"
-  - 9.0.4
+  - "9.1"
+  - 9.1.0
   - 9-debian13
-  - 9.0-debian13
-  - 9.0.4-debian13
+  - 9.1-debian13
+  - 9.1.0-debian13
 platforms:
   - linux/amd64
   - linux/arm64
 dates:
-  release: "2025-10-21"
+  release: "2026-05-19"
   end-of-life: "2028-10-21"
 vars:
-  COMMIT_SHA: 1cbee84ba69b54c3510597965fc4320ce716a6f4
-  DEBIAN_EPOCH_MAJOR_MINOR_VERSION: "9.0"
+  COMMIT_SHA: c9e8005e9d0ec817e26c7db318861cb821409249
+  DEBIAN_EPOCH_MAJOR_MINOR_VERSION: "9.1"
   DEBIAN_EPOCH_MAJOR_VERSION: "9"
-  DEBIAN_EPOCH_VERSION: 9.0.4
-  VERSION: 9.0.4
+  DEBIAN_EPOCH_VERSION: 9.1.0
+  VERSION: 9.1.0
 contents:
   packages:
     - '!adduser'
@@ -79,15 +79,15 @@ contents:
           - python3
           - sed
         files:
-          - url: git+https://github.com/valkey-io/valkey.git#9.0.4
-            checksum: 1cbee84ba69b54c3510597965fc4320ce716a6f4
+          - url: git+https://github.com/valkey-io/valkey.git#9.1.0
+            checksum: c9e8005e9d0ec817e26c7db318861cb821409249
             path: ${source.dir}/valkey
             spdx:
               name: valkey
-              version: 9.0.4
+              version: 9.1.0
               packages:
                 - name: valkey
-                  purl: pkg:dhi/valkey@9.0.4
+                  purl: pkg:dhi/valkey@9.1.0
                   license: BSD-3-Clause
             uid: 0
             gid: 0
