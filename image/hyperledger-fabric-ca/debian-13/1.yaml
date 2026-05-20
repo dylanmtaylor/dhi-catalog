@@ -6,10 +6,10 @@ variant: runtime
 tags:
   - "1"
   - "1.5"
-  - 1.5.19
+  - 1.5.20
   - 1-debian13
   - 1.5-debian13
-  - 1.5.19-debian13
+  - 1.5.20-debian13
 platforms:
   - linux/amd64
   - linux/arm64
@@ -17,12 +17,12 @@ dates:
   release: "2026-02-06"
 vars:
   BASE_REFERENCE: dhi/static:20250419-glibc-debian13@sha256:03c0bb735cf243aac5adbb9da6f1ffea6f157a17531573b8c5f8e1329a3cc724
-  COMMIT_SHA: e42dcb6e826fd6ac0a755627adc456b27cf68df1
+  COMMIT_SHA: 0727b136fc5e89dc349de5cfcf3e99f5a59fd03a
   GO_REFERENCE: dhi/golang:1.25.10-debian13-dev@sha256:375eb677024bb497cf14a3a63048d5b63e800451878d3fca7a3dd5970b9baec0
   SEMVER_MAJOR_MINOR_VERSION: "1.5"
   SEMVER_MAJOR_VERSION: "1"
-  SEMVER_VERSION: 1.5.19
-  VERSION: 1.5.19
+  SEMVER_VERSION: 1.5.20
+  VERSION: 1.5.20
 contents:
   packages:
     - '!base-files'
@@ -40,15 +40,15 @@ contents:
           - gzip
           - make
         files:
-          - url: git+https://github.com/hyperledger/fabric-ca.git#v1.5.19
-            checksum: e42dcb6e826fd6ac0a755627adc456b27cf68df1
+          - url: git+https://github.com/hyperledger/fabric-ca.git#v1.5.20
+            checksum: 0727b136fc5e89dc349de5cfcf3e99f5a59fd03a
             path: /go/src/github.com/hyperledger/fabric-ca
             spdx:
               name: fabric-ca
-              version: 1.5.19
+              version: 1.5.20
               packages:
                 - name: fabric-ca
-                  purl: pkg:golang/github.com/hyperledger/fabric-ca@1.5.19
+                  purl: pkg:golang/github.com/hyperledger/fabric-ca@1.5.20
                   license: Apache-2.0
             uid: 0
             gid: 0
@@ -86,7 +86,7 @@ contents:
             ldflags:
               - -s
               - -w
-              - -X github.com/hyperledger/fabric-ca/lib/metadata.Version=1.5.19
+              - -X github.com/hyperledger/fabric-ca/lib/metadata.Version=1.5.20
               - -linkmode external
               - -extldflags -lpthread
             output: ${target.dir}/usr/local/bin/fabric-ca-server
@@ -101,7 +101,7 @@ contents:
             ldflags:
               - -s
               - -w
-              - -X github.com/hyperledger/fabric-ca/lib/metadata.Version=1.5.19
+              - -X github.com/hyperledger/fabric-ca/lib/metadata.Version=1.5.20
               - -linkmode external
               - -extldflags -lpthread
             output: ${target.dir}/usr/local/bin/fabric-ca-client
