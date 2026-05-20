@@ -15,7 +15,7 @@ vars:
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
   GRAFANA_AGENT_OPERATOR_REFERENCE: dhi/grafana-agent-operator:0.44.8-debian13@sha256:d553de8413ff901d0d34f664aa02ae5acf8825492be1930affacf5a31005566e
-  GRAFANA_AGENT_REFERENCE: dhi/grafana-agent:0.44.8-debian13@sha256:917f6b8b022d980c0037b26185da6673d070c1e97ca3dc509eb09e7d3871b184
+  GRAFANA_AGENT_REFERENCE: dhi/grafana-agent:0.44.8-debian13@sha256:f3535705f13043a6ec7cef8c4956a778187d35b5f0042a4f2c40f78b7b4d54ff
   HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
   SEMVER_MAJOR_MINOR_VERSION: "0.5"
   SEMVER_MAJOR_VERSION: "0"
@@ -51,7 +51,7 @@ contents:
                 - name: grafana-agent-operator
                   ref: dhi/grafana-agent-operator:0.44.8-debian13@sha256:d553de8413ff901d0d34f664aa02ae5acf8825492be1930affacf5a31005566e
                 - name: grafana-agent
-                  ref: dhi/grafana-agent:0.44.8-debian13@sha256:917f6b8b022d980c0037b26185da6673d070c1e97ca3dc509eb09e7d3871b184
+                  ref: dhi/grafana-agent:0.44.8-debian13@sha256:f3535705f13043a6ec7cef8c4956a778187d35b5f0042a4f2c40f78b7b4d54ff
                 - name: busybox
                   ref: dhi/busybox:1.37.0-debian13@sha256:f05f53964b498b59b389a4f28b1ec0c588f8612ba78a79154ab793d32e55641b
               name: grafana-agent-operator-chart
