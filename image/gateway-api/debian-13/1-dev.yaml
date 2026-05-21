@@ -1,0 +1,142 @@
+# syntax=dhi.io/build:2-debian13
+
+name: gateway-api echo-basic 1.x (dev)
+image: dhi.io/gateway-api
+variant: dev
+tags:
+  - 1-dev
+  - 1.5-dev
+  - 1.5.1-dev
+  - 1-debian13-dev
+  - 1.5-debian13-dev
+  - 1.5.1-debian13-dev
+platforms:
+  - linux/amd64
+  - linux/arm64
+dates:
+  release: "2026-05-20"
+vars:
+  BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
+  BASE_TAG: 20250419-debian13
+  COMMIT_SHA: e7677b70ae75d14a4448fba94870e7deea6cf0ad
+  GOLANG_REFERENCE: dhi/golang:1.26.1-debian13-dev@sha256:0517a2c5ce6ab35fadf27bc7e2a2e3188c379af9fa9f59c20b3cfea7d926aca6
+  SEMVER_MAJOR_MINOR_VERSION: "1.5"
+  SEMVER_MAJOR_VERSION: "1"
+  SEMVER_VERSION: 1.5.1
+  VERSION: 1.5.1
+contents:
+  packages:
+    - '!base-files'
+    - '!gawk'
+    - '!libelogind0'
+    - '!original-awk'
+    - apt
+    - bash
+    - ca-certificates
+    - coreutils
+    - diffutils
+    - dpkg
+    - findutils
+    - grep
+    - libc-bin
+    - mawk
+    - perl-base
+    - sed
+    - util-linux
+  builds:
+    - name: echo-basic
+      uses: dhi.io/golang:1.26.1-debian13-dev@sha256:0517a2c5ce6ab35fadf27bc7e2a2e3188c379af9fa9f59c20b3cfea7d926aca6
+      work-dir: /go/src/sigs.k8s.io/gateway-api/conformance/echo-basic
+      caches:
+        - path: /go/pkg/mod
+      contents:
+        files:
+          - url: git+https://github.com/kubernetes-sigs/gateway-api.git#v1.5.1
+            checksum: e7677b70ae75d14a4448fba94870e7deea6cf0ad
+            path: /go/src/sigs.k8s.io/gateway-api
+            spdx:
+              name: gateway-api
+              version: 1.5.1
+              packages:
+                - name: gateway-api
+                  purl: pkg:golang/sigs.k8s.io/gateway-api@v1.5.1
+                  license: Apache-2.0
+            uid: 0
+            gid: 0
+      pipeline:
+        - name: prepare module
+          runs: |
+            set -eux -o pipefail
+
+            cp .go.mod go.mod
+            cp .go.sum go.sum
+        - name: build
+          env:
+            GOWORK: "off"
+          uses: go/build@v1
+          with:
+            ldflags:
+              - -s
+              - -w
+            output: ${target.dir}/usr/local/bin/echo-basic
+            packages: .
+      outputs:
+        - source: ${target.dir}/usr/local/bin/echo-basic
+          target: /usr/local/bin/echo-basic
+          uid: 0
+          gid: 0
+        - source: /opt/docker/sbom/echo-basic
+          target: /opt/docker/sbom/echo-basic
+          uid: 0
+          gid: 0
+  artifacts:
+    - name: dhi.io/static:20250419-debian13@sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
+      includes:
+        - bin
+        - etc
+        - home
+        - lib
+        - lib64
+        - opt
+        - sbin
+        - tmp
+        - usr
+        - var
+      excludes:
+        - etc/group
+        - etc/os-release
+        - etc/passwd
+        - var/lib/dpkg/status
+      uid: 0
+      gid: 0
+accounts:
+  root: true
+  run-as: root
+  users:
+    - name: nonroot
+      uid: 65532
+      gid: 65532
+    - name: _apt
+      uid: 42
+      gid: 65532
+  groups:
+    - name: nonroot
+      gid: 65532
+os-release:
+  name: Docker Hardened Images (Debian)
+  id: debian
+  version-id: "13"
+  version-codename: trixie
+  pretty-name: Docker Hardened Images/Debian GNU/Linux 13 (trixie)
+  home-url: https://docker.com/products/hardened-images/
+  bug-report-url: https://docker.com/support/
+work-dir: /
+environment:
+  DEBIAN_FRONTEND: noninteractive
+annotations:
+  org.opencontainers.image.description: A minimal Gateway API echo-basic conformance test server
+  org.opencontainers.image.licenses: Apache-2.0
+entrypoint:
+  - /usr/local/bin/echo-basic
+ports:
+  - 3000/tcp

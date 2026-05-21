@@ -1,0 +1,8 @@
+metadata:
+  display-name: Gateway API Webhook
+  short-description: |
+    Validating Webhook Admission Server for the Kubernetes Gateway API.
+  featured: false
+  home-url: https://gateway-api.sigs.k8s.io/
+  categories:
+    - networking
