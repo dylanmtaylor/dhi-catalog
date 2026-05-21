@@ -1,0 +1,112 @@
+# syntax=dhi.io/build:2-debian13
+
+name: karpenter 1.12.x
+image: dhi.io/karpenter
+variant: runtime
+tags:
+  - "1"
+  - "1.12"
+  - 1.12.1
+  - 1-debian13
+  - 1.12-debian13
+  - 1.12.1-debian13
+platforms:
+  - linux/amd64
+  - linux/arm64
+vars:
+  BASE_DIGEST: sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
+  BASE_TAG: 20250419-debian13
+  COMMIT_SHA: 15781e312b8e01d4c2caecd9a4f5c7a70d84a6a0
+  GOLANG_REFERENCE: dhi/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
+  SEMVER_MAJOR_MINOR_VERSION: "1.12"
+  SEMVER_MAJOR_VERSION: "1"
+  SEMVER_VERSION: 1.12.1
+  VERSION: 1.12.1
+contents:
+  packages:
+    - '!base-files'
+  builds:
+    - name: karpenter-go
+      uses: dhi.io/golang:1.26.3-debian13-dev@sha256:fd3180feff08929120077efe8799d54693a9861006cf400e5788591948f7402d
+      contents:
+        files:
+          - url: git+https://github.com/aws/karpenter-provider-aws#v1.12.1
+            checksum: 15781e312b8e01d4c2caecd9a4f5c7a70d84a6a0
+            path: /go/src/github.com/aws/karpenter-provider-aws
+            spdx:
+              name: karpenter
+              version: 1.12.1
+              packages:
+                - name: karpenter
+                  purl: pkg:dhi/karpenter@1.12.1
+                  license: Apache-2.0
+            uid: 0
+            gid: 0
+      pipeline:
+        - name: build
+          uses: go/build@v1
+          work-dir: /go/src/github.com/aws/karpenter-provider-aws
+          with:
+            ldflags:
+              - -X main.Version=1.12.1
+              - -X main.GitSHA=15781e312b8e01d4c2caecd9a4f5c7a70d84a6a0
+              - -X main.BuiltAt=$(date -u -d @${SOURCE_DATE_EPOCH} +'%F-%T')
+            output: ${target.dir}/usr/local/bin/controller
+            packages: ./cmd/controller
+      outputs:
+        - source: ${target.dir}/usr/local/bin
+          target: /usr/local/bin
+          uid: 0
+          gid: 0
+        - source: /opt/docker/sbom/karpenter
+          target: /opt/docker/sbom/karpenter
+          uid: 0
+          gid: 0
+  artifacts:
+    - name: dhi.io/static:20250419-debian13@sha256:74fc43fa240887b8159970e434244039aab0c6efaaa9cf044004cdc22aa2a34d
+      includes:
+        - bin
+        - etc
+        - home
+        - lib
+        - lib64
+        - opt
+        - sbin
+        - tmp
+        - usr
+        - var
+      excludes:
+        - etc/group
+        - etc/os-release
+        - etc/passwd
+        - var/lib/dpkg/status
+      uid: 0
+      gid: 0
+accounts:
+  run-as: nonroot
+  users:
+    - name: nonroot
+      uid: 65532
+      gid: 65532
+  groups:
+    - name: nonroot
+      gid: 65532
+      members:
+        - nonroot
+os-release:
+  name: Docker Hardened Images (Debian)
+  id: debian
+  version-id: "13"
+  version-codename: trixie
+  pretty-name: Docker Hardened Images/Debian GNU/Linux 13 (trixie)
+  home-url: https://docker.com/products/hardened-images/
+  bug-report-url: https://docker.com/support/
+environment:
+  SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+annotations:
+  org.opencontainers.image.description: A minimal karpenter image
+  org.opencontainers.image.licenses: Apache-2.0
+entrypoint:
+  - /usr/local/bin/controller
+ports:
+  - 8080/tcp
