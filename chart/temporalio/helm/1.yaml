@@ -13,18 +13,18 @@ vars:
   DHI_PREFIX: ""
   DHI_REGISTRY: dhi.io
   DHI_SKIP_CONTEXT_COPY: "true"
-  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+  HELM_REFERENCE: dhi/helm:3.21.0-debian13-dev@sha256:462393863790e8d4b174f63f0da50798da095a059d4fab7692ae4fb7a58e99d3
   SEMVER_MAJOR_MINOR_VERSION: "1.2"
   SEMVER_MAJOR_VERSION: "1"
   SEMVER_VERSION: 1.2.0
   TEMPORALIO_ADMIN_TOOLS_REFERENCE: dhi/temporalio-admin-tools:1.31.0-cli-1.7.0-debian13@sha256:2f0ee209b960a4cb3ec2d20c0330aa40605a849ecd9ec594a4fcfbeed51c93de
   TEMPORALIO_SERVER_REFERENCE: dhi/temporalio-server:1.31.0-debian13@sha256:dc7dbd8e48fefdbd9ec00ae86ccd25f155bd332460928bdf4c14a3e890734dba
-  TEMPORALIO_UI_REFERENCE: dhi/temporalio-ui:2.49.1-debian13@sha256:a356abf980aa886d4fed7dba4f7e7b4eb7dbbb29551bcb343c182d2bbec6e2b9
+  TEMPORALIO_UI_REFERENCE: dhi/temporalio-ui:2.49.1-debian13@sha256:0589e66dd52d5ba9692d831b363ec9f7f4bac6949199ab82118ac9c0289c73a7
   VERSION: 1.2.0
 contents:
   builds:
     - name: temporalio
-      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:f4a916b146b07955a0f7f705854bfda3af7853e4cedb839335d4d269004cbf00
+      uses: dhi.io/helm:3.21.0-debian13-dev@sha256:462393863790e8d4b174f63f0da50798da095a059d4fab7692ae4fb7a58e99d3
       work-dir: ${source.dir}/helm-charts/charts/temporal
       contents:
         files:
@@ -46,7 +46,7 @@ contents:
                 - name: temporalio-admin-tools
                   ref: dhi/temporalio-admin-tools:1.31.0-cli-1.7.0-debian13@sha256:2f0ee209b960a4cb3ec2d20c0330aa40605a849ecd9ec594a4fcfbeed51c93de
                 - name: temporalio-ui
-                  ref: dhi/temporalio-ui:2.49.1-debian13@sha256:a356abf980aa886d4fed7dba4f7e7b4eb7dbbb29551bcb343c182d2bbec6e2b9
+                  ref: dhi/temporalio-ui:2.49.1-debian13@sha256:0589e66dd52d5ba9692d831b363ec9f7f4bac6949199ab82118ac9c0289c73a7
               name: temporalio-chart
               notes: ${source.dir}/config/NOTES.txt
               sourceUrl: https://github.com/temporalio/helm-charts
